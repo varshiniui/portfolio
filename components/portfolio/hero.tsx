@@ -161,8 +161,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
         >
           {[
-            { href: "#", Icon: Github, label: "GitHub" },
-            { href: "#", Icon: Linkedin, label: "LinkedIn" },
+            { href: "https://github.com/varshiniui", Icon: Github, label: "GitHub" },
+            { href: "https://linkedin.com/in/varshini-shya", Icon: Linkedin, label: "LinkedIn" },
             { href: "mailto:varshini562021@gmail.com", Icon: Mail, label: "Email" },
           ].map(({ href, Icon, label }) => (
             <a
