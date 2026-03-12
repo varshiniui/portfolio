@@ -168,7 +168,7 @@ export function Hero() {
             <a
               key={label}
               href={href}
-              target={href !== "#" ? "_blank" : undefined}
+              target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               className="p-3 rounded-full glass-card border border-transparent transition-all duration-300 group"
               style={{}}
