@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2 } from "lucide-react";
+import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain } from "lucide-react";
 
 interface Internship {
   company: string;
@@ -72,6 +72,23 @@ const internships: Internship[] = [
     badgeColor: "oklch(0.44 0.12 150)",
     badgeBorder: "oklch(0.90 0.08 150 / 0.35)",
   },
+  {
+    company: "Alric Infotech Pvt Ltd",
+    role: "AI/ML Intern",
+    duration: "2025",
+    description:
+      "Completed an internship in Artificial Intelligence and Machine Learning, successfully delivering a project while demonstrating strong analytical, logical, and problem-solving skills.",
+    skills: ["Artificial Intelligence", "Machine Learning", "Analytical Systems", "Python"],
+    certificateUrl: "https://drive.google.com/file/d/1xcxARUhRERfKiHgpZGDgkVKhKyvrqY5A/preview",
+    icon: Brain,
+    // mint
+    iconBg: "oklch(0.88 0.12 160 / 0.18)",
+    iconColor: "oklch(0.42 0.13 160)",
+    cardAccent: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.09), transparent)",
+    badgeBg: "oklch(0.88 0.12 160 / 0.15)",
+    badgeColor: "oklch(0.42 0.13 160)",
+    badgeBorder: "oklch(0.88 0.12 160 / 0.35)",
+  },
 ];
 
 export function InternshipSection() {
@@ -123,7 +140,7 @@ export function InternshipSection() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {internships.map((internship, index) => (
             <motion.div
               key={internship.company}
