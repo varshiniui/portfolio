@@ -111,6 +111,7 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "MyRecipeBook",
     description:
       "A secure CRUD web application for recipe management with session-based authentication.",
     fullDescription:
