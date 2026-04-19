@@ -9,6 +9,7 @@ import {
   MessageSquare,
   Book,
   BarChart3,
+  UtensilsCrossed,
   X,
   Play,
   Sparkles,
@@ -85,7 +86,31 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "MyRecipeBook – Full Stack CRUD App",
+    title: "foodi. – Restaurant Discovery Platform",
+    description:
+      "An ML-powered restaurant discovery app with personalised recommendations, rating prediction, and an interactive map explorer.",
+    fullDescription:
+      "A full end-to-end machine learning web application built with Python and Streamlit. Explore, filter, and get personalised restaurant recommendations from 9,500+ restaurants across 15 countries and 141 cities. Combines content-based filtering, Random Forest rating prediction (R² = 0.71), geospatial analysis, and interactive data visualisation in one platform.",
+    techStack: ["Python", "Streamlit", "scikit-learn", "Pandas", "NumPy", "Folium", "Random Forest", "Cosine Similarity"],
+    icon: UtensilsCrossed,
+    cardGrad: "linear-gradient(135deg, oklch(0.92 0.10 130 / 0.10), transparent)",
+    githubUrl: "https://github.com/varshiniui/foodi-app",
+    demoUrl: "https://foodi-app-g8mkbyb9skf35pjp5qhqzm.streamlit.app/",
+    featured: false,
+    screenshots: [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=500&fit=crop",
+    ],
+    highlights: [
+      "9,500+ restaurants across 15 countries and 141 cities",
+      "Content-based filtering with cosine similarity for personalised recommendations",
+      "Random Forest rating predictor — R² = 0.71, RMSE = 0.30",
+      "Interactive Folium map with colour-coded markers and real-time filters",
+    ],
+  },
+  {
     description:
       "A secure CRUD web application for recipe management with session-based authentication.",
     fullDescription:
@@ -141,10 +166,11 @@ const projects: Project[] = [
 
 // Per-project sorbet accent colors for icons/badges
 const projectAccents = [
-  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" },     // coral
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" },    // lavender
-  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 140)" },      // yellow
-  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },      // peach
+  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" },     // mint - AI Voice
+  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" },    // teal - StudyMate
+  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" },    // lime - foodi
+  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },    // sage - MyRecipeBook
+  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },    // teal-mint - Weather
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {

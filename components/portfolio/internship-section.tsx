@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain } from "lucide-react";
+import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain, Layers } from "lucide-react";
 
 interface Internship {
   company: string;
@@ -22,9 +22,26 @@ interface Internship {
 
 const internships: Internship[] = [
   {
+    company: "SaiKet Systems",
+    role: "Full Stack Development Intern",
+    duration: "2026",
+    description:
+      "Completed a full stack development internship, building and deploying web applications while demonstrating exceptional dedication and strong Full Stack Development skills.",
+    skills: ["Next.js", "Express.js", "PostgreSQL", "JWT Auth", "REST APIs", "Full Stack"],
+    certificateUrl: "https://drive.google.com/file/d/1lKlaHIyTdCXWHn8pyb8jPeHGDtsQlsOT/preview",
+    icon: Layers,
+    // teal
+    iconBg: "oklch(0.88 0.09 180 / 0.20)",
+    iconColor: "oklch(0.40 0.12 180)",
+    cardAccent: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.09), transparent)",
+    badgeBg: "oklch(0.88 0.09 180 / 0.15)",
+    badgeColor: "oklch(0.40 0.12 180)",
+    badgeBorder: "oklch(0.88 0.09 180 / 0.35)",
+  },
+  {
     company: "Zoro Tech",
     role: "UI/UX Design Intern",
-    duration: "Jul 14, 2025 – Jul 28, 2025",
+    duration: "2025",
     description:
       "Completed a hands-on internship focused on UI/UX designing, working on practical design projects and learning user-centred design principles under professional guidance.",
     skills: ["UI Design", "UX Research", "Figma", "Prototyping", "User Flows"],
@@ -41,7 +58,7 @@ const internships: Internship[] = [
   {
     company: "Besant Technologies",
     role: "Frontend Development Intern",
-    duration: "Dec 2025 – Jan 2026",
+    duration: "2025 – 2026",
     description:
       "Completed a 1-month internship in Frontend development using React JS, contributing to project-based tasks and hands-on assignments with both front-end and back-end technologies.",
     skills: ["React.js", "JavaScript", "HTML", "CSS", "Frontend Development"],
