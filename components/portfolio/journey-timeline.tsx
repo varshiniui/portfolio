@@ -26,9 +26,9 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "AI & Data Analytics",
+    title: "AI, ML & Data Analytics",
     description:
-      "Explored artificial intelligence, machine learning, and data visualization with Power BI. Built AI-powered applications and dived deep into data-driven thinking.",
+      "Explored machine learning and data analytics — built foodi., an end-to-end ML web app with a Random Forest rating predictor (R² = 0.71) and content-based restaurant recommendations across 9,500+ entries. Also worked with Power BI, Pandas, and scikit-learn.",
     icon: Brain,
     iconGrad: "var(--gradient-3)",
     yearColor: "oklch(0.44 0.12 150)",
@@ -36,9 +36,9 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "Full-Stack Development",
+    title: "Full-Stack & Cross-Platform Development",
     description:
-      "Built complete web applications using React.js, Next.js 14, Node.js, Express.js, and PostgreSQL. Developed real-world projects with authentication and CRUD operations.",
+      "Built complete web applications using React.js, Next.js 14, Node.js, Express.js, and PostgreSQL. Also shipped CrickClash — a Flutter-based cricket quiz game deployed as both a web app and Android APK.",
     icon: Globe,
     iconGrad: "var(--gradient-2)",
     yearColor: "oklch(0.40 0.12 140)",
@@ -55,10 +55,20 @@ const milestones = [
     yearBg: "oklch(0.88 0.12 160 / 0.15)",
   },
   {
-    year: "2026",
-    title: "Building with AI APIs",
+    year: "2025 – 2026",
+    title: "Internships & Real-World Experience",
     description:
-      "Built a production-ready AI Voice Note Summarizer with a multi-model fallback pipeline, 7-language support, waveform visualisation, and PDF export. Deployed on Vercel and Railway.",
+      "Completed internships across AI/ML (Alric Infotech), Full Stack Development (SaiKet Systems), Frontend Development (Besant Technologies), Data Analytics, and UI/UX Design — building real products and working within professional teams.",
+    icon: Trophy,
+    iconGrad: "var(--gradient-3)",
+    yearColor: "oklch(0.44 0.12 150)",
+    yearBg: "oklch(0.90 0.08 150 / 0.20)",
+  },
+  {
+    year: "2026",
+    title: "Building with AI APIs & Browser Extensions",
+    description:
+      "Built Voca — a production-ready AI Voice Note Summarizer with a multi-model fallback pipeline, 7-language support, waveform visualisation, and PDF export. Also built FocusTrack, a full-stack Chrome extension for productivity tracking with a PostgreSQL backend and analytics dashboard.",
     icon: Sparkles,
     iconGrad: "var(--gradient-1)",
     yearColor: "oklch(0.45 0.13 160)",

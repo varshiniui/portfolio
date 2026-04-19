@@ -10,6 +10,7 @@ import {
   Book,
   BarChart3,
   UtensilsCrossed,
+  Chrome,
   X,
   Play,
   Sparkles,
@@ -137,6 +138,31 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "FocusTrack – Productivity Chrome Extension",
+    description:
+      "A Chrome extension that tracks time spent on websites, classifies activity as productive or unproductive, blocks distracting sites, and surfaces analytics through a full dashboard.",
+    fullDescription:
+      "A full-stack Chrome extension built with Manifest V3 that runs silently in the background, timing every tab switch and page visit. Logs data to a PostgreSQL database via a local Node.js/Express server. Features a popup for quick daily stats and a full analytics dashboard with weekly bar charts, site blocking, and daily goal tracking.",
+    techStack: ["Chrome Manifest V3", "JavaScript", "Node.js", "Express.js", "PostgreSQL", "Chart.js"],
+    icon: Chrome,
+    cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
+    githubUrl: "https://github.com/varshiniui/focustrack",
+    demoUrl: "#",
+    featured: false,
+    screenshots: [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=500&fit=crop",
+    ],
+    highlights: [
+      "Chrome Manifest V3 extension with background service worker",
+      "Automatic time tracking with productive vs unproductive classification",
+      "Site blocker with custom blocked page and daily goal tracking",
+      "Full analytics dashboard with weekly chart and top sites table",
+    ],
+  },
+  {
     title: "Weather App",
     description:
       "A responsive React.js weather application that fetches real-time data for any city.",
@@ -172,6 +198,7 @@ const projectAccents = [
   { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" },    // lime - foodi
   { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },    // sage - MyRecipeBook
   { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },    // teal-mint - Weather
+  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.40 0.13 200)" },    // blue-teal - FocusTrack
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {

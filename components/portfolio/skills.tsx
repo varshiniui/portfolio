@@ -44,7 +44,7 @@ const skillCategories = [
   {
     title: "Tools & Deployment",
     icon: Wrench,
-    skills: ["Git", "GitHub", "Vercel", "Railway", "Netlify", "Render", "Figma", "Canva", "JWT Auth"],
+    skills: ["Git", "GitHub", "Vercel", "Railway", "Netlify", "Render", "Figma", "Canva", "JWT Auth", "Chrome Extensions"],
     // peach tint
     iconBg: "oklch(0.90 0.08 150 / 0.20)",
     iconColor: "oklch(0.44 0.12 150)",

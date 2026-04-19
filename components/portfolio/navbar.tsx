@@ -13,9 +13,40 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+function useActiveSection() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.replace("#", ""));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the entry that is most visible
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActive("#" + visible[0].target.id);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -43,7 +74,7 @@ export function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <nav className="max-w-6xl mx-auto flex items-center justify-between">
-          {/* Logo — gradient-text already uses Sorbet palette */}
+          {/* Logo */}
           <button
             onClick={() => scrollToSection("#")}
             className="text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
@@ -53,24 +84,48 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => scrollToSection(link.href)}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-full"
-                onMouseEnter={e =>
-                  (e.currentTarget.style.background = "oklch(0.88 0.12 160 / 0.08)")
-                }
-                onMouseLeave={e =>
-                  (e.currentTarget.style.background = "transparent")
-                }
-              >
-                {link.name}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href;
+              return (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="relative px-4 py-2 text-sm font-medium rounded-full transition-colors"
+                  style={{
+                    color: isActive ? "oklch(0.42 0.17 162)" : undefined,
+                  }}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full"
+                      style={{ background: "oklch(0.88 0.12 160 / 0.15)" }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span
+                    className={`relative z-10 transition-colors duration-200 ${
+                      isActive
+                        ? "font-semibold"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-dot"
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                      style={{ background: "oklch(0.52 0.18 162)" }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Hire Me — Sunset Sorbet gradient button */}
+          {/* Hire Me */}
           <div className="hidden lg:block">
             <motion.button
               className="px-6 py-2.5 rounded-xl text-sm font-bold text-white"
@@ -90,14 +145,9 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 rounded-full transition-colors"
-            style={{}}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            onMouseEnter={e =>
-              (e.currentTarget.style.background = "oklch(0.88 0.12 160 / 0.08)")
-            }
-            onMouseLeave={e =>
-              (e.currentTarget.style.background = "transparent")
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.background = "oklch(0.88 0.12 160 / 0.08)")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -130,21 +180,28 @@ export function Navbar() {
               transition={{ duration: 0.2 }}
             >
               <div className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href)}
-                    className="px-4 py-3 text-base font-medium text-foreground rounded-xl transition-colors text-left"
-                    onMouseEnter={e =>
-                      (e.currentTarget.style.background = "oklch(0.88 0.12 160 / 0.08)")
-                    }
-                    onMouseLeave={e =>
-                      (e.currentTarget.style.background = "transparent")
-                    }
-                  >
-                    {link.name}
-                  </button>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.href;
+                  return (
+                    <button
+                      key={link.name}
+                      onClick={() => scrollToSection(link.href)}
+                      className="px-4 py-3 text-base font-medium rounded-xl transition-colors text-left flex items-center justify-between"
+                      style={{
+                        background: isActive ? "oklch(0.88 0.12 160 / 0.12)" : "transparent",
+                        color: isActive ? "oklch(0.42 0.17 162)" : undefined,
+                      }}
+                    >
+                      <span>{link.name}</span>
+                      {isActive && (
+                        <span
+                          className="w-1.5 h-1.5 rounded-full"
+                          style={{ background: "oklch(0.52 0.18 162)" }}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
                 <div className="pt-4 mt-2 border-t border-border/50">
                   <motion.button
                     className="w-full py-3 rounded-xl text-sm font-bold text-white"
