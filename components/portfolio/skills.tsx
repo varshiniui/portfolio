@@ -7,7 +7,7 @@ const skillCategories = [
   {
     title: "Programming",
     icon: Code2,
-    skills: ["JavaScript", "Python", "Java (Basics)", "SQL"],
+    skills: ["JavaScript", "Python", "Java (Basics)", "SQL", "Dart"],
     // coral tint
     iconBg: "oklch(0.88 0.12 160 / 0.15)",
     iconColor: "oklch(0.45 0.13 160)",
@@ -16,7 +16,7 @@ const skillCategories = [
   {
     title: "Web Development",
     icon: Globe,
-    skills: ["React.js", "Next.js 14", "Node.js", "Express.js", "HTML", "CSS", "REST APIs", "Framer Motion"],
+    skills: ["React.js", "Next.js 14", "Node.js", "Express.js", "HTML", "CSS", "Tailwind CSS", "REST APIs", "Framer Motion", "Flutter", "Streamlit"],
     // blush lavender tint
     iconBg: "oklch(0.88 0.09 180 / 0.18)",
     iconColor: "oklch(0.42 0.11 180)",
@@ -25,7 +25,7 @@ const skillCategories = [
   {
     title: "AI & APIs",
     icon: Sparkles,
-    skills: ["Groq Whisper Large v3", "LLaMA 3.3 70B", "Gemini 2.0 Flash", "AssemblyAI", "Multi-model Fallback Pipeline"],
+    skills: ["Groq Whisper Large v3", "LLaMA 3.3 70B", "Gemini 2.0 Flash", "AssemblyAI", "Multi-model Fallback Pipeline", "scikit-learn", "Random Forest", "Cosine Similarity"],
     // coral-to-lavender tint (featured)
     iconBg: "var(--gradient-1)",
     iconColor: "white",
@@ -35,7 +35,7 @@ const skillCategories = [
   {
     title: "Data & Analytics",
     icon: BarChart3,
-    skills: ["Power BI", "Pandas", "Matplotlib", "PostgreSQL"],
+    skills: ["Power BI", "Pandas", "Matplotlib", "NumPy", "PostgreSQL", "MySQL", "MongoDB"],
     // butter yellow tint
     iconBg: "oklch(0.92 0.10 130 / 0.25)",
     iconColor: "oklch(0.40 0.12 140)",
@@ -44,7 +44,7 @@ const skillCategories = [
   {
     title: "Tools & Deployment",
     icon: Wrench,
-    skills: ["Git", "GitHub", "Vercel", "Railway", "Netlify", "Render", "Figma", "Canva"],
+    skills: ["Git", "GitHub", "Vercel", "Railway", "Netlify", "Render", "Figma", "Canva", "JWT Auth"],
     // peach tint
     iconBg: "oklch(0.90 0.08 150 / 0.20)",
     iconColor: "oklch(0.44 0.12 150)",
