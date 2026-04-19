@@ -30,6 +30,19 @@ const certifications: Certification[] = [
     badgeColor: "oklch(0.40 0.12 140)",
     badgeBorder: "oklch(0.88 0.10 130 / 0.40)",
   },
+  {
+    title: "Continuous Integration and Delivery – DevOps",
+    platform: "Infosys Springboard",
+    skills: ["CI/CD", "DevOps", "Continuous Integration", "Continuous Delivery"],
+    certificateUrl: "https://drive.google.com/file/d/1u7a8SxefcKC2O99gMMvgXul6RT-JUFJX/preview",
+    // teal accent
+    iconBg: "oklch(0.88 0.09 180 / 0.20)",
+    iconColor: "oklch(0.40 0.12 180)",
+    cardAccent: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.09), transparent)",
+    badgeBg: "oklch(0.88 0.09 180 / 0.15)",
+    badgeColor: "oklch(0.40 0.12 180)",
+    badgeBorder: "oklch(0.88 0.09 180 / 0.35)",
+  },
 ];
 
 export function CertificationsSection() {
