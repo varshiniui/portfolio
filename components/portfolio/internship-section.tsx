@@ -45,7 +45,7 @@ const internships: Internship[] = [
     description:
       "Completed a hands-on internship focused on UI/UX designing, working on practical design projects and learning user-centred design principles under professional guidance.",
     skills: ["UI Design", "UX Research", "Figma", "Prototyping", "User Flows"],
-    certificateUrl: "https://drive.google.com/file/d/1mgL7UUW7CjcLSXLtFXEO5qifs9j85M9R/preview",
+    certificateUrl: "https://drive.google.com/file/d/1ff_4sFw8Bx-IyZSrg0qRSZ-DdbjEORZE/view?usp=drive_link",
     icon: Palette,
     // blush lavender
     iconBg: "oklch(0.88 0.09 180 / 0.18)",
@@ -62,7 +62,7 @@ const internships: Internship[] = [
     description:
       "Completed a 1-month internship in Frontend development using React JS, contributing to project-based tasks and hands-on assignments with both front-end and back-end technologies.",
     skills: ["React.js", "JavaScript", "HTML", "CSS", "Frontend Development"],
-    certificateUrl: "https://drive.google.com/file/d/1p4hB62_ZC_c8hWXUMAVvES8_RDBt6Fu3/preview",
+    certificateUrl: "https://drive.google.com/file/d/1rIGGZAIj3xmuSSxUUmpiVtjrHhaIxzsc/view?usp=drive_link",
     icon: Code2,
     // coral
     iconBg: "oklch(0.88 0.12 160 / 0.15)",
@@ -96,7 +96,7 @@ const internships: Internship[] = [
     description:
       "Completed an internship in Artificial Intelligence and Machine Learning, successfully delivering a project while demonstrating strong analytical, logical, and problem-solving skills.",
     skills: ["Artificial Intelligence", "Machine Learning", "Analytical Systems", "Python"],
-    certificateUrl: "https://drive.google.com/file/d/1xcxARUhRERfKiHgpZGDgkVKhKyvrqY5A/preview",
+    certificateUrl: "https://drive.google.com/file/d/1_i670Zv_gEoS57kydoXX2MOk45ptPloj/view?usp=drive_link",
     icon: Brain,
     // mint
     iconBg: "oklch(0.88 0.12 160 / 0.18)",
