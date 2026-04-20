@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, animate } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const ROLES = [
@@ -256,15 +256,14 @@ export function Hero() {
             </span>
           </motion.button>
 
-          <motion.a
-            href="/Sahaya_Varshini_Resume.pdf"
-            download
+          <motion.button
             className="flex items-center gap-2.5 px-9 py-4 rounded-2xl text-base font-bold border-2"
             style={{
               borderColor: "oklch(0.52 0.18 162 / 0.45)",
               color: "oklch(0.42 0.17 162)",
               background: "oklch(0.88 0.12 160 / 0.08)",
             }}
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             whileHover={{
               scale: 1.04,
               background: "oklch(0.88 0.12 160 / 0.18)",
@@ -273,9 +272,8 @@ export function Hero() {
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 18 }}
           >
-            <Download className="w-4 h-4" />
-            Resume
-          </motion.a>
+            Get in Touch
+          </motion.button>
         </motion.div>
 
         {/* Social icons */}
