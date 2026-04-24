@@ -110,31 +110,6 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "MyRecipeBook",
-    description:
-      "A secure CRUD web application for recipe management with session-based authentication.",
-    fullDescription:
-      "A comprehensive recipe management platform for creating, reading, updating, and deleting recipes. Features robust session-based authentication with a clean Bootstrap-powered interface.",
-    techStack: ["PHP", "MySQL", "Bootstrap", "HTML5", "CSS3", "JavaScript"],
-    icon: Book,
-    cardGrad: "linear-gradient(135deg, oklch(0.92 0.10 130 / 0.12), transparent)",
-    githubUrl: "https://github.com/varshiniui/RecipeSharing-App",
-    demoUrl: "#",
-    featured: false,
-    screenshots: [
-      "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop",
-    ],
-    highlights: [
-      "Full CRUD operations",
-      "Session-based authentication",
-      "Recipe categorization",
-      "User data protection",
-    ],
-  },
-  {
     title: "FocusTrack – Productivity Chrome Extension",
     description:
       "A Chrome extension that tracks time spent on websites, classifies activity as productive or unproductive, blocks distracting sites, and surfaces analytics through a full dashboard.",
