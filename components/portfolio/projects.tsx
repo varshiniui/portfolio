@@ -45,7 +45,7 @@ const projects: Project[] = [
     // coral
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/voca",
-    demoUrl: "http://voca-amber.vercel.app",
+    demoUrl: "https://voca-amber.vercel.app",
     featured: true,
     screenshots: [
       "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=500&fit=crop",
@@ -640,11 +640,13 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                           boxShadow: "0 8px 32px oklch(0.68 0.13 160 / 0.40), 0 0 0 4px oklch(0.88 0.12 160 / 0.30)",
                         }}
                         whileHover={{ scale: 1.07 }}
-                        animate={{ boxShadow: [
-                          "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                          "0 8px 48px oklch(0.68 0.13 160 / 0.55), 0 0 0 8px oklch(0.88 0.12 160 / 0.15)",
-                          "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                        ]}}
+                        animate={{
+                          boxShadow: [
+                            "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
+                            "0 8px 48px oklch(0.68 0.13 160 / 0.55), 0 0 0 8px oklch(0.88 0.12 160 / 0.15)",
+                            "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
+                          ]
+                        }}
                         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                       >
                         <Mic className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
