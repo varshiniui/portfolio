@@ -147,10 +147,11 @@ const projects: Project[] = [
     demoUrl: "#",
     featured: false,
     screenshots: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=500&fit=crop",
+      "/screenshots/focustrack/popup.png",
+      "/screenshots/focustrack/dashboard.png",
+      "/screenshots/focustrack/blocked.png",
+      "/screenshots/focustrack/popup2.png",
+      "/screenshots/focustrack/site_rule.png",
     ],
     highlights: [
       "Chrome Manifest V3 extension with background service worker",
@@ -445,16 +446,18 @@ function ProjectPreviewModal({
                   <Github className="w-4 h-4" />
                   View on GitHub
                 </a>
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
-                </a>
+                {project.demoUrl !== "#" && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
+                  </a>
+                )}
               </div>
             </motion.div>
           </motion.div>
@@ -506,7 +509,6 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              {/* FIX: Now an <a> tag that opens the actual demo URL */}
               <a
                 href={project.demoUrl}
                 target="_blank"
@@ -532,7 +534,7 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
             </div>
           </div>
 
-          {/* Right: Static animated preview (no toggle) */}
+          {/* Right: Static animated preview */}
           <div
             className="relative aspect-square lg:aspect-auto flex items-center justify-center p-8"
             style={{ background: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.06), transparent, oklch(0.88 0.09 180 / 0.06))" }}
@@ -706,17 +708,19 @@ export function Projects() {
                       <Github className="w-4 h-4" />
                       GitHub
                     </a>
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                      style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
+                    {project.demoUrl !== "#" && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                        style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
