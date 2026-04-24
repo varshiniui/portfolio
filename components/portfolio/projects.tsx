@@ -42,7 +42,6 @@ const projects: Project[] = [
       "A cutting-edge web application that leverages speech recognition and AI to transform voice notes into actionable insights. Record your thoughts, meetings, or ideas, and let the AI extract key points, action items, and summaries automatically.",
     techStack: ["Speech-to-text API", "AI Summarization", "JavaScript", "Web APIs", "HTML5", "CSS3"],
     icon: Mic,
-    // coral
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/voca",
     demoUrl: "https://voca-amber.vercel.app/",
@@ -68,7 +67,6 @@ const projects: Project[] = [
       "An intelligent study companion powered by AI that helps students learn more effectively. Features user authentication, persistent chat history, and a responsive interface that works across all devices.",
     techStack: ["React.js", "REST APIs", "Netlify", "Render", "CSS3", "Node.js"],
     icon: MessageSquare,
-    // blush lavender
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/studymate-ai",
     demoUrl: "https://studymateeeai.netlify.app/",
@@ -119,7 +117,6 @@ const projects: Project[] = [
       "A comprehensive recipe management platform for creating, reading, updating, and deleting recipes. Features robust session-based authentication with a clean Bootstrap-powered interface.",
     techStack: ["PHP", "MySQL", "Bootstrap", "HTML5", "CSS3", "JavaScript"],
     icon: Book,
-    // butter yellow
     cardGrad: "linear-gradient(135deg, oklch(0.92 0.10 130 / 0.12), transparent)",
     githubUrl: "https://github.com/varshiniui/RecipeSharing-App",
     demoUrl: "#",
@@ -170,7 +167,6 @@ const projects: Project[] = [
       "A sleek weather application built with React.js that integrates the OpenWeatherMap API to display real-time weather information. Search any city for temperature, humidity, wind speed, sunrise and sunset details.",
     techStack: ["React.js", "JavaScript", "CSS", "OpenWeatherMap API"],
     icon: BarChart3,
-    // peach
     cardGrad: "linear-gradient(135deg, oklch(0.90 0.08 150 / 0.12), transparent)",
     githubUrl: "https://github.com/varshiniui/weather-app",
     demoUrl: "https://weathercast-react.netlify.app/",
@@ -191,14 +187,13 @@ const projects: Project[] = [
   },
 ];
 
-// Per-project sorbet accent colors for icons/badges
 const projectAccents = [
-  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" },     // mint - AI Voice
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" },    // teal - StudyMate
-  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" },    // lime - foodi
-  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },    // sage - MyRecipeBook
-  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },    // teal-mint - Weather
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.40 0.13 200)" },    // blue-teal - FocusTrack
+  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" },
+  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" },
+  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" },
+  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },
+  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },
+  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.40 0.13 200)" },
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {
@@ -470,8 +465,7 @@ function ProjectPreviewModal({
 }
 
 function FeaturedProjectDemo({ project }: { project: Project }) {
-  const [showDemo, setShowDemo] = useState(false);
-  const accent = projectAccents[0]; // coral for featured
+  const accent = projectAccents[0];
 
   return (
     <motion.div
@@ -481,7 +475,7 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Animated Sorbet gradient border */}
+      {/* Animated gradient border */}
       <div className="absolute inset-0 rounded-3xl p-[1px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
@@ -512,14 +506,17 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <button
+              {/* FIX: Now an <a> tag that opens the actual demo URL */}
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
                 style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
-                onClick={() => setShowDemo(true)}
               >
                 <Play className="w-4 h-4" />
                 Try Demo
-              </button>
+              </a>
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -535,127 +532,45 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
             </div>
           </div>
 
-          {/* Right: Preview */}
+          {/* Right: Static animated preview (no toggle) */}
           <div
             className="relative aspect-square lg:aspect-auto flex items-center justify-center p-8"
             style={{ background: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.06), transparent, oklch(0.88 0.09 180 / 0.06))" }}
           >
-            <AnimatePresence mode="wait">
-              {showDemo ? (
+            <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+              {[0, 1, 2].map((i) => (
                 <motion.div
-                  key="demo"
-                  className="w-full h-full rounded-2xl overflow-hidden bg-background border border-border shadow-2xl"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ type: "spring", damping: 20, stiffness: 380 }}
-                >
-                  <div className="h-full flex flex-col">
-                    <div className="flex items-center justify-between p-4 border-b border-border bg-muted/30">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full" style={{ background: "oklch(0.88 0.12 160 / 0.70)" }} />
-                        <div className="w-3 h-3 rounded-full" style={{ background: "oklch(0.88 0.12 160 / 0.70)" }} />
-                        <div className="w-3 h-3 rounded-full" style={{ background: "oklch(0.88 0.09 180 / 0.70)" }} />
-                      </div>
-                      <span className="text-xs text-muted-foreground font-mono">voice-note-summarizer.app</span>
-                      <button onClick={() => setShowDemo(false)} className="text-muted-foreground hover:text-foreground transition-colors">
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    <div className="flex-1 p-6 flex flex-col items-center justify-center gap-6">
-                      <div className="relative w-24 h-24">
-                        {[0, 1].map((i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute inset-0 rounded-full"
-                            style={{ border: `2px solid oklch(0.55 0.14 160 / ${0.5 - i * 0.2})` }}
-                            animate={{ scale: [1, 1.7 + i * 0.3, 1], opacity: [0.7, 0, 0.7] }}
-                            transition={{ duration: 2, delay: i * 0.6, repeat: Infinity, ease: "easeOut" }}
-                          />
-                        ))}
-                        <motion.div
-                          className="absolute inset-0 rounded-full flex items-center justify-center"
-                          style={{
-                            background: "linear-gradient(135deg, oklch(0.68 0.13 160), oklch(0.55 0.13 175))",
-                            boxShadow: "0 4px 20px oklch(0.68 0.13 160 / 0.35)",
-                          }}
-                          animate={{ scale: [1, 1.06, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          <Mic className="w-10 h-10 text-white" />
-                        </motion.div>
-                      </div>
-
-                      <div className="text-center">
-                        <p className="text-foreground font-medium mb-2">Click to start recording</p>
-                        <p className="text-sm text-muted-foreground">
-                          Your voice will be converted to text and summarized by AI
-                        </p>
-                      </div>
-
-                      <button
-                        className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white"
-                        style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))" }}
-                      >
-                        <Mic className="w-4 h-4" />
-                        Start Recording
-                      </button>
-
-                      <div className="w-full mt-4 p-4 rounded-xl bg-muted/30 border border-border">
-                        <p className="text-xs text-muted-foreground mb-2">Sample Summary:</p>
-                        <p className="text-sm text-foreground">
-                          &ldquo;Key points: Project deadline is Friday. Need to review the API documentation. Schedule meeting with the team.&rdquo;
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ) : (
+                  key={i}
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    border: `${2 - i * 0.5}px solid oklch(0.55 0.14 160 / ${0.55 - i * 0.15})`,
+                    boxShadow: i === 0 ? "0 0 20px oklch(0.68 0.13 160 / 0.25)" : "none",
+                  }}
+                  animate={{ scale: [1, 1.6 + i * 0.25, 1], opacity: [0.8, 0, 0.8] }}
+                  transition={{ duration: 2.2, delay: i * 0.55, repeat: Infinity, ease: "easeOut" }}
+                />
+              ))}
+              <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  key="preview"
-                  className="relative"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="w-32 h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "linear-gradient(135deg, oklch(0.68 0.13 160), oklch(0.55 0.13 175))",
+                    boxShadow: "0 8px 32px oklch(0.68 0.13 160 / 0.40), 0 0 0 4px oklch(0.88 0.12 160 / 0.30)",
+                  }}
+                  whileHover={{ scale: 1.07 }}
+                  animate={{
+                    boxShadow: [
+                      "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
+                      "0 8px 48px oklch(0.68 0.13 160 / 0.55), 0 0 0 8px oklch(0.88 0.12 160 / 0.15)",
+                      "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
+                    ]
+                  }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className="relative w-64 h-64 lg:w-80 lg:h-80">
-                    {[0, 1, 2].map((i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          border: `${2 - i * 0.5}px solid oklch(0.55 0.14 160 / ${0.55 - i * 0.15})`,
-                          boxShadow: i === 0 ? "0 0 20px oklch(0.68 0.13 160 / 0.25)" : "none",
-                        }}
-                        animate={{ scale: [1, 1.6 + i * 0.25, 1], opacity: [0.8, 0, 0.8] }}
-                        transition={{ duration: 2.2, delay: i * 0.55, repeat: Infinity, ease: "easeOut" }}
-                      />
-                    ))}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        className="w-32 h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center"
-                        style={{
-                          background: "linear-gradient(135deg, oklch(0.68 0.13 160), oklch(0.55 0.13 175))",
-                          boxShadow: "0 8px 32px oklch(0.68 0.13 160 / 0.40), 0 0 0 4px oklch(0.88 0.12 160 / 0.30)",
-                        }}
-                        whileHover={{ scale: 1.07 }}
-                        animate={{
-                          boxShadow: [
-                            "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                            "0 8px 48px oklch(0.68 0.13 160 / 0.55), 0 0 0 8px oklch(0.88 0.12 160 / 0.15)",
-                            "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                          ]
-                        }}
-                        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <Mic className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
-                      </motion.div>
-                    </div>
-                  </div>
+                  <Mic className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
                 </motion.div>
-              )}
-            </AnimatePresence>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -707,7 +622,6 @@ export function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Badge: coral tint */}
           <span
             className="inline-block px-4 py-2 mb-4 text-sm font-semibold rounded-full border"
             style={{
@@ -746,7 +660,6 @@ export function Projects() {
                 whileHover={{ y: -10, scale: 1.025 }}
                 onClick={() => openProjectModal(project)}
               >
-                {/* Click hint */}
                 <span className="absolute top-4 right-4 px-2 py-1 text-xs font-medium text-muted-foreground bg-muted/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                   Click to preview
                 </span>
