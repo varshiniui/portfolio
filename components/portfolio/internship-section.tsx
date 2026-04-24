@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain, Layers } from "lucide-react";
+import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain, Layers, Cpu } from "lucide-react";
 
 interface Internship {
   company: string;
@@ -21,6 +21,22 @@ interface Internship {
 }
 
 const internships: Internship[] = [
+  {
+    company: "Cognifyz Technologies",
+    role: "Machine Learning Intern",
+    duration: "Mar 2026 – Apr 2026",
+    description:
+      "Completed a one-month Machine Learning internship, demonstrating remarkable dedication, sincerity, and a strong desire to learn while showcasing exceptional coordination skills and effective communication abilities.",
+    skills: ["Machine Learning", "Python", "Data Analysis", "Problem Solving"],
+    certificateUrl: "https://drive.google.com/file/d/1wFQGULNC-DXUiBLpgBCscTNT90NBjwME/view?usp=drive_link",
+    icon: Cpu,
+    iconBg: "oklch(0.88 0.09 240 / 0.20)",
+    iconColor: "oklch(0.35 0.15 240)",
+    cardAccent: "linear-gradient(135deg, oklch(0.88 0.09 240 / 0.09), transparent)",
+    badgeBg: "oklch(0.88 0.09 240 / 0.15)",
+    badgeColor: "oklch(0.35 0.15 240)",
+    badgeBorder: "oklch(0.88 0.09 240 / 0.35)",
+  },
   {
     company: "SaiKet Systems",
     role: "Full Stack Development Intern",
