@@ -45,7 +45,7 @@ const projects: Project[] = [
     // coral
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/voca",
-    demoUrl: "https://voca-amber.vercel.app",
+    demoUrl: "https://voca-amber.vercel.app/",
     featured: true,
     screenshots: [
       "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=500&fit=crop",
