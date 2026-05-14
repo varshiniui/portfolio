@@ -10,6 +10,7 @@ import {
   Book,
   BarChart3,
   UtensilsCrossed,
+  Brain,  
   Chrome,
   X,
   Play,
@@ -34,6 +35,33 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+  title: "Practiq - AI Mock Interview Coach",
+  description:
+    "An AI-powered mock interview platform with role-specific, company-specific, and resume-based questions. Get dual AI feedback from Groq and Gemini side by side.",
+  fullDescription:
+    "Practiq is a full-stack AI interview coaching platform built for placement season. Choose from 20+ roles and 40+ companies, upload your resume for personalized questions, or target a specific company-role combination. Every answer is evaluated by both Groq LLaMA 3.3 70B and Google Gemini 2.0 Flash simultaneously. Features voice input via Whisper, a countdown timer, hint system, skip system, difficulty levels, report cards, score history dashboard, and full authentication via Supabase.",
+  techStack: ["Next.js 14", "Groq LLaMA 3.3 70B", "Gemini 2.0 Flash", "Whisper Large v3", "Supabase", "Framer Motion", "Tailwind CSS"],
+  icon: Brain,
+  cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 290 / 0.10), transparent)",
+  githubUrl: "https://github.com/varshiniui/practiq",
+  demoUrl: "https://practiq-zeta.vercel.app/",
+  featured: false,
+  screenshots: [
+    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
+  ],
+  highlights: [
+    "3 interview modes — Practice, Targeted (company + role), and Resume-based",
+    "Dual AI feedback from Groq LLaMA 3.3 70B and Gemini 2.0 Flash side by side",
+    "Voice input via Groq Whisper Large v3 with real-time transcription",
+    "40+ companies including Google, Amazon, Zomato, Razorpay, TCS and more",
+    "Report card with per-question scores, insights, and session history dashboard",
+    "Full auth with Google OAuth and email via Supabase",
+  ],
+},
   {
     title: "AI Voice Note Summarizer",
     description:
@@ -170,6 +198,7 @@ const projectAccents = [
   { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },
   { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },
   { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.40 0.13 200)" },
+  { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" },
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {
