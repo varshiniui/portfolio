@@ -7,10 +7,9 @@ import {
   Github,
   Mic,
   MessageSquare,
-  Book,
+  Brain,
   BarChart3,
   UtensilsCrossed,
-  Brain,  
   Chrome,
   X,
   Play,
@@ -36,34 +35,34 @@ interface Project {
 
 const projects: Project[] = [
   {
-  title: "Practiq - AI Mock Interview Coach",
-  description:
-    "An AI-powered mock interview platform with role-specific, company-specific, and resume-based questions. Get dual AI feedback from Groq and Gemini side by side.",
-  fullDescription:
-    "Practiq is a full-stack AI interview coaching platform built for placement season. Choose from 20+ roles and 40+ companies, upload your resume for personalized questions, or target a specific company-role combination. Every answer is evaluated by both Groq LLaMA 3.3 70B and Google Gemini 2.0 Flash simultaneously. Features voice input via Whisper, a countdown timer, hint system, skip system, difficulty levels, report cards, score history dashboard, and full authentication via Supabase.",
-  techStack: ["Next.js 14", "Groq LLaMA 3.3 70B", "Gemini 2.0 Flash", "Whisper Large v3", "Supabase", "Framer Motion", "Tailwind CSS"],
-  icon: Brain,
-  cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 290 / 0.10), transparent)",
-  githubUrl: "https://github.com/varshiniui/practiq",
-  demoUrl: "https://practiq-zeta.vercel.app/",
-  featured: false,
-  screenshots: [
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
-  ],
-  highlights: [
-    "3 interview modes — Practice, Targeted (company + role), and Resume-based",
-    "Dual AI feedback from Groq LLaMA 3.3 70B and Gemini 2.0 Flash side by side",
-    "Voice input via Groq Whisper Large v3 with real-time transcription",
-    "40+ companies including Google, Amazon, Zomato, Razorpay, TCS and more",
-    "Report card with per-question scores, insights, and session history dashboard",
-    "Full auth with Google OAuth and email via Supabase",
-  ],
-},
+    title: "Practiq — AI Mock Interview Coach",
+    description:
+      "An AI-powered mock interview platform with role-specific, company-specific, and resume-based questions. Get dual AI feedback from Groq and Gemini side by side.",
+    fullDescription:
+      "Practiq is a full-stack AI interview coaching platform built for placement season. Choose from 20+ roles and 40+ companies, upload your resume for personalized questions, or target a specific company-role combination. Every answer is evaluated by both Groq LLaMA 3.3 70B and Google Gemini 2.0 Flash simultaneously. Features voice input via Whisper, a countdown timer, hint system, skip system, difficulty levels, report cards, score history dashboard, and full authentication via Supabase.",
+    techStack: ["Next.js 14", "Groq LLaMA 3.3 70B", "Gemini 2.0 Flash", "Whisper Large v3", "Supabase", "Framer Motion", "Tailwind CSS"],
+    icon: Brain,
+    cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 290 / 0.10), transparent)",
+    githubUrl: "https://github.com/varshiniui/practiq",
+    demoUrl: "https://practiq-zeta.vercel.app/",
+    featured: true,
+    screenshots: [
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
+    ],
+    highlights: [
+      "3 interview modes — Practice, Targeted (company + role), and Resume-based",
+      "Dual AI feedback from Groq LLaMA 3.3 70B and Gemini 2.0 Flash side by side",
+      "Voice input via Groq Whisper Large v3 with real-time transcription",
+      "40+ companies including Google, Amazon, Zomato, Razorpay, TCS and more",
+      "Report card with per-question scores, insights, and session history dashboard",
+      "Full auth with Google OAuth and email via Supabase",
+    ],
+  },
   {
-    title: "AI Voice Note Summarizer",
+    title: "Voca — AI Voice Note Summarizer",
     description:
       "A web application that records voice notes, converts speech to text, and generates AI-powered summaries.",
     fullDescription:
@@ -73,7 +72,7 @@ const projects: Project[] = [
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/voca",
     demoUrl: "https://voca-amber.vercel.app/",
-    featured: true,
+    featured: false,
     screenshots: [
       "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&h=500&fit=crop",
       "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=500&fit=crop",
@@ -98,7 +97,7 @@ const projects: Project[] = [
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
     githubUrl: "https://github.com/varshiniui/studymate-ai",
     demoUrl: "https://studymateeeai.netlify.app/",
-    featured: true,
+    featured: false,
     screenshots: [
       "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=500&fit=crop",
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
@@ -192,13 +191,12 @@ const projects: Project[] = [
 ];
 
 const projectAccents = [
-  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" },
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" },
-  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" },
-  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" },
-  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" },
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.40 0.13 200)" },
-  { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" },
+  { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" }, // Practiq — purple
+  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" }, // Voca — green
+  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" }, // StudyMate
+  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" }, // foodi
+  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" }, // FocusTrack
+  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" }, // Weather
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {
@@ -456,7 +454,7 @@ function ProjectPreviewModal({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                    style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
+                    style={{ background: `linear-gradient(135deg, ${accent.color}, oklch(0.44 0.20 310))`, boxShadow: `0 4px 18px ${accent.color.replace(")", " / 0.32)").replace("oklch(", "oklch(")}, inset 0 1px 0 oklch(1 0 0 / 0.18)` }}
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
@@ -472,7 +470,7 @@ function ProjectPreviewModal({
 }
 
 function FeaturedProjectDemo({ project }: { project: Project }) {
-  const accent = projectAccents[0];
+  const accent = { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" };
 
   return (
     <motion.div
@@ -486,7 +484,11 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
       <div className="absolute inset-0 rounded-3xl p-[1px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", backgroundSize: "200% 100%", opacity: 0.7 }}
+          style={{
+            background: "linear-gradient(135deg, oklch(0.55 0.18 290), oklch(0.50 0.18 320))",
+            backgroundSize: "200% 100%",
+            opacity: 0.7,
+          }}
           animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
@@ -518,7 +520,10 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
+                style={{
+                  background: "linear-gradient(135deg, oklch(0.55 0.18 290), oklch(0.50 0.18 320))",
+                  boxShadow: "0 4px 18px oklch(0.55 0.18 290 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)",
+                }}
               >
                 <Play className="w-4 h-4" />
                 Try Demo
@@ -538,10 +543,12 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
             </div>
           </div>
 
-          {/* Right: Static animated preview */}
+          {/* Right: Animated Brain icon with purple glow */}
           <div
             className="relative aspect-square lg:aspect-auto flex items-center justify-center p-8"
-            style={{ background: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.06), transparent, oklch(0.88 0.09 180 / 0.06))" }}
+            style={{
+              background: "linear-gradient(135deg, oklch(0.85 0.10 290 / 0.06), transparent, oklch(0.80 0.12 320 / 0.06))",
+            }}
           >
             <div className="relative w-64 h-64 lg:w-80 lg:h-80">
               {[0, 1, 2].map((i) => (
@@ -549,8 +556,8 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                   key={i}
                   className="absolute inset-0 rounded-full"
                   style={{
-                    border: `${2 - i * 0.5}px solid oklch(0.55 0.14 160 / ${0.55 - i * 0.15})`,
-                    boxShadow: i === 0 ? "0 0 20px oklch(0.68 0.13 160 / 0.25)" : "none",
+                    border: `${2 - i * 0.5}px solid oklch(0.55 0.18 290 / ${0.55 - i * 0.15})`,
+                    boxShadow: i === 0 ? "0 0 20px oklch(0.55 0.18 290 / 0.25)" : "none",
                   }}
                   animate={{ scale: [1, 1.6 + i * 0.25, 1], opacity: [0.8, 0, 0.8] }}
                   transition={{ duration: 2.2, delay: i * 0.55, repeat: Infinity, ease: "easeOut" }}
@@ -560,20 +567,20 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                 <motion.div
                   className="w-32 h-32 lg:w-40 lg:h-40 rounded-full flex items-center justify-center"
                   style={{
-                    background: "linear-gradient(135deg, oklch(0.68 0.13 160), oklch(0.55 0.13 175))",
-                    boxShadow: "0 8px 32px oklch(0.68 0.13 160 / 0.40), 0 0 0 4px oklch(0.88 0.12 160 / 0.30)",
+                    background: "linear-gradient(135deg, oklch(0.55 0.18 290), oklch(0.50 0.18 320))",
+                    boxShadow: "0 8px 32px oklch(0.55 0.18 290 / 0.40), 0 0 0 4px oklch(0.75 0.15 290 / 0.30)",
                   }}
                   whileHover={{ scale: 1.07 }}
                   animate={{
                     boxShadow: [
-                      "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                      "0 8px 48px oklch(0.68 0.13 160 / 0.55), 0 0 0 8px oklch(0.88 0.12 160 / 0.15)",
-                      "0 8px 32px oklch(0.68 0.13 160 / 0.35), 0 0 0 4px oklch(0.88 0.12 160 / 0.25)",
-                    ]
+                      "0 8px 32px oklch(0.55 0.18 290 / 0.35), 0 0 0 4px oklch(0.75 0.15 290 / 0.25)",
+                      "0 8px 48px oklch(0.55 0.18 290 / 0.55), 0 0 0 8px oklch(0.75 0.15 290 / 0.15)",
+                      "0 8px 32px oklch(0.55 0.18 290 / 0.35), 0 0 0 4px oklch(0.75 0.15 290 / 0.25)",
+                    ],
                   }}
                   transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Mic className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
+                  <Brain className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
                 </motion.div>
               </div>
             </div>
@@ -589,8 +596,8 @@ export function Projects() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const featuredProject = projects.find((p) => p.title === "AI Voice Note Summarizer")!;
-  const otherProjects = projects.filter((p) => p.title !== "AI Voice Note Summarizer");
+  const featuredProject = projects.find((p) => p.featured)!;
+  const otherProjects = projects.filter((p) => !p.featured);
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project);
@@ -718,7 +725,10 @@ export function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                        style={{ background: "linear-gradient(135deg, oklch(0.52 0.18 162), oklch(0.44 0.16 172))", boxShadow: "0 4px 18px oklch(0.52 0.18 162 / 0.32), inset 0 1px 0 oklch(1 0 0 / 0.18)" }}
+                        style={{
+                          background: `linear-gradient(135deg, ${accent.color}, oklch(0.44 0.16 172))`,
+                          boxShadow: `0 4px 18px ${accent.color.replace(")", " / 0.32)").replace("oklch(", "oklch(")}, inset 0 1px 0 oklch(1 0 0 / 0.18)`,
+                        }}
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink className="w-4 h-4" />
