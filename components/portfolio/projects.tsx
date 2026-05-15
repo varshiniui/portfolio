@@ -35,7 +35,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Practiq — AI Mock Interview Coach",
+    title: "Practiq - AI Mock Interview Coach",
     description:
       "An AI-powered mock interview platform with role-specific, company-specific, and resume-based questions. Get dual AI feedback from Groq and Gemini side by side.",
     fullDescription:
@@ -62,7 +62,7 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Voca — AI Voice Note Summarizer",
+    title: "Voca - AI Voice Note Summarizer",
     description:
       "A web application that records voice notes, converts speech to text, and generates AI-powered summaries.",
     fullDescription:
