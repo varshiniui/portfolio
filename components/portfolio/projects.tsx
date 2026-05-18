@@ -182,7 +182,7 @@ const projects: Project[] = [
   ],
   icon: NotebookPen,
   cardGrad:
-  "linear-gradient(135deg, oklch(0.93 0.11 320 / 0.22), oklch(0.90 0.10 300 / 0.14), oklch(0.96 0.04 20 / 0.06))",
+  "linear-gradient(135deg, oklch(0.97 0.03 85 / 0.95), oklch(0.95 0.05 40 / 0.55), oklch(0.93 0.04 20 / 0.35))",
   githubUrl: "https://github.com/varshiniui/peblo_notes",
   demoUrl: "https://peblonotes.vercel.app/",
   featured: false,
@@ -260,10 +260,7 @@ const projectAccents = [
   { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" }, // foodi
   { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" }, // FocusTrack
   { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" }, // Weather
-  { 
-  bg: "oklch(0.93 0.10 320 / 0.22)", 
-  color: "oklch(0.58 0.18 320)" 
-},
+  { bg: "oklch(0.95 0.05 45 / 0.35)",color: "oklch(0.58 0.12 35)"},
 ];
 
 function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {
