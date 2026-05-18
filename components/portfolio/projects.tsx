@@ -186,12 +186,12 @@ const projects: Project[] = [
       "Interactive Folium map with colour-coded markers and real-time filters",
     ],
   },
-  {
+{
   title: "Peblo Notes – AI Productivity Workspace",
   description:
     "A modern full-stack AI note-taking platform featuring smart summaries, public sharing, analytics, and a refined productivity-focused workspace.",
   fullDescription:
-    "Peblo Notes is a polished AI-powered productivity workspace designed for seamless note-taking and intelligent organisation. Built using a scalable monorepo architecture with Next.js 14, Express, Prisma, and TypeScript, the platform combines secure authentication, AI-generated note summaries, public share links, analytics dashboards, auto-saving editors, and a modern pastel SaaS-inspired interface. The project focuses heavily on clean architecture, responsive UX, elegant UI design, and practical AI integration for real-world productivity workflows.",
+    "Peblo Notes is a polished AI-powered productivity workspace designed for seamless note-taking and intelligent organisation. Built using a scalable monorepo architecture with Next.js 14, Express, Prisma, and TypeScript, the platform combines secure authentication, AI-generated note summaries, public share links, analytics dashboards, auto-saving editors, and a modern pastel SaaS-inspired interface.",
   techStack: [
     "Next.js 14",
     "TypeScript",
@@ -205,58 +205,59 @@ const projects: Project[] = [
     "shadcn/ui",
   ],
   icon: NotebookPen,
-  cardGrad:
-  "linear-gradient(135deg, oklch(0.97 0.03 85 / 0.95), oklch(0.95 0.05 40 / 0.55), oklch(0.93 0.04 20 / 0.35))",
+  cardGrad: "linear-gradient(135deg, oklch(0.93 0.04 290 / 0.95), oklch(0.90 0.07 280 / 0.60), transparent)",
   accent: {
-  bg: "oklch(0.88 0.07 160 / 0.14)",
-  color: "oklch(0.42 0.12 160)",
-},
+    bg: "oklch(0.88 0.10 290 / 0.18)",
+    color: "oklch(0.45 0.18 290)",
+  },
   githubUrl: "https://github.com/varshiniui/peblo_notes",
   demoUrl: "https://peblonotes.vercel.app/",
   featured: false,
   screenshots: [
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1686191128892-3b37add4c844?w=800&h=500&fit=crop",
   ],
   highlights: [
     "AI-powered note summarisation with structured insights and action item extraction",
-    "Secure authentication system with protected routes and JWT-based access control",
-    "Public note sharing with unique share links and elegant read-only pages",
-    "Modern analytics dashboard with productivity tracking and activity visualisation",
+    "Secure JWT authentication with protected routes and persistent sessions",
+    "Public note sharing with unique links and clean read-only pages",
+    "Analytics dashboard with productivity tracking and weekly activity chart",
   ],
 },
+
   {
-    title: "FocusTrack – Productivity Chrome Extension",
-    description:
-      "A Chrome extension that tracks time spent on websites, classifies activity as productive or unproductive, blocks distracting sites, and surfaces analytics through a full dashboard.",
-    fullDescription:
-      "A full-stack Chrome extension built with Manifest V3 that runs silently in the background, timing every tab switch and page visit. Logs data to a PostgreSQL database via a local Node.js/Express server. Features a popup for quick daily stats and a full analytics dashboard with weekly bar charts, site blocking, and daily goal tracking.",
-    techStack: ["Chrome Manifest V3", "JavaScript", "Node.js", "Express.js", "PostgreSQL", "Chart.js"],
-    icon: Chrome,
-    cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
-    accent: {
-  bg: "oklch(0.90 0.08 40 / 0.16)",
-  color: "oklch(0.58 0.16 40)",
-},
-    githubUrl: "https://github.com/varshiniui/focustrack",
-    demoUrl: "#",
-    featured: false,
-    screenshots: [
-      "/screenshots/focustrack/popup.png",
-      "/screenshots/focustrack/dashboard.png",
-      "/screenshots/focustrack/blocked.png",
-      "/screenshots/focustrack/popup2.png",
-      "/screenshots/focustrack/site_rule.png",
-    ],
-    highlights: [
-      "Chrome Manifest V3 extension with background service worker",
-      "Automatic time tracking with productive vs unproductive classification",
-      "Site blocker with custom blocked page and daily goal tracking",
-      "Full analytics dashboard with weekly chart and top sites table",
-    ],
+  title: "FocusTrack – Productivity Chrome Extension",
+  description:
+    "A Chrome extension that tracks time spent on websites, classifies activity as productive or unproductive, blocks distracting sites, and surfaces analytics through a full dashboard.",
+  fullDescription:
+    "A full-stack Chrome extension built with Manifest V3 that runs silently in the background, timing every tab switch and page visit. Logs data to a PostgreSQL database via a local Node.js/Express server. Features a popup for quick daily stats and a full analytics dashboard with weekly bar charts, site blocking, and daily goal tracking.",
+  techStack: ["Chrome Manifest V3", "JavaScript", "Node.js", "Express.js", "PostgreSQL", "Chart.js"],
+  icon: Chrome,
+  cardGrad: "linear-gradient(135deg, oklch(0.95 0.04 40 / 0.95), oklch(0.92 0.07 35 / 0.60), transparent)",
+  accent: {
+    bg: "oklch(0.92 0.08 40 / 0.18)",
+    color: "oklch(0.52 0.16 40)",
   },
+  githubUrl: "https://github.com/varshiniui/focustrack",
+  demoUrl: "#",
+  featured: false,
+  screenshots: [
+    "/screenshots/focustrack/popup.png",
+    "/screenshots/focustrack/dashboard.png",
+    "/screenshots/focustrack/blocked.png",
+    "/screenshots/focustrack/popup2.png",
+    "/screenshots/focustrack/site_rule.png",
+  ],
+  highlights: [
+    "Chrome Manifest V3 extension with background service worker",
+    "Automatic time tracking with productive vs unproductive classification",
+    "Site blocker with custom blocked page and daily goal tracking",
+    "Full analytics dashboard with weekly chart and top sites table",
+  ],
+},
+
   {
     title: "Weather App",
     description:
