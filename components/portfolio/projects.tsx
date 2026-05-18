@@ -27,6 +27,10 @@ interface Project {
   techStack: string[];
   icon: React.ElementType;
   cardGrad: string;
+  accent: {
+  bg: string;
+  color: string;
+};
   githubUrl: string;
   demoUrl: string;
   featured: boolean;
@@ -44,6 +48,10 @@ const projects: Project[] = [
     techStack: ["Next.js 14", "Groq LLaMA 3.3 70B", "Gemini 2.0 Flash", "Whisper Large v3", "Supabase", "Framer Motion", "Tailwind CSS"],
     icon: Brain,
     cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 290 / 0.10), transparent)",
+    accent: {
+  bg: "oklch(0.88 0.10 290 / 0.15)",
+  color: "oklch(0.50 0.18 290)",
+},
     githubUrl: "https://github.com/varshiniui/practiq",
     demoUrl: "https://practiq-zeta.vercel.app/",
     featured: true,
@@ -71,6 +79,10 @@ const projects: Project[] = [
     techStack: ["Speech-to-text API", "AI Summarization", "JavaScript", "Web APIs", "HTML5", "CSS3"],
     icon: Mic,
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.12 160 / 0.10), transparent)",
+    accent: {
+  bg: "oklch(0.88 0.12 160 / 0.15)",
+  color: "oklch(0.45 0.13 160)",
+},
     githubUrl: "https://github.com/varshiniui/voca",
     demoUrl: "https://voca-amber.vercel.app/",
     featured: false,
@@ -96,6 +108,10 @@ const projects: Project[] = [
     techStack: ["React.js", "REST APIs", "Netlify", "Render", "CSS3", "Node.js"],
     icon: MessageSquare,
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
+    accent: {
+  bg: "oklch(0.88 0.09 180 / 0.18)",
+  color: "oklch(0.42 0.11 180)",
+},
     githubUrl: "https://github.com/varshiniui/studymate-ai",
     demoUrl: "https://studymateeeai.netlify.app/",
     featured: false,
@@ -121,6 +137,10 @@ const projects: Project[] = [
   techStack: ["Node.js", "Socket.io", "Express", "Vercel", "Render", "HTML", "CSS", "JavaScript"],
   icon: MessageSquare,
   cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 60 / 0.10), transparent)",
+  accent: {
+  bg: "oklch(0.90 0.08 250 / 0.14)",
+  color: "oklch(0.52 0.16 250)",
+},
   githubUrl: "https://github.com/varshiniui/chat-app",
   demoUrl: "https://murmur-rust.vercel.app/",
   featured: false,
@@ -146,6 +166,10 @@ const projects: Project[] = [
     techStack: ["Python", "Streamlit", "scikit-learn", "Pandas", "NumPy", "Folium", "Random Forest", "Cosine Similarity"],
     icon: UtensilsCrossed,
     cardGrad: "linear-gradient(135deg, oklch(0.92 0.10 130 / 0.10), transparent)",
+    accent: {
+  bg: "oklch(0.92 0.10 130 / 0.22)",
+  color: "oklch(0.40 0.12 130)",
+},
     githubUrl: "https://github.com/varshiniui/foodi-app",
     demoUrl: "https://foodi-app-g8mkbyb9skf35pjp5qhqzm.streamlit.app/",
     featured: false,
@@ -183,6 +207,10 @@ const projects: Project[] = [
   icon: NotebookPen,
   cardGrad:
   "linear-gradient(135deg, oklch(0.97 0.03 85 / 0.95), oklch(0.95 0.05 40 / 0.55), oklch(0.93 0.04 20 / 0.35))",
+  accent: {
+  bg: "oklch(0.88 0.07 160 / 0.14)",
+  color: "oklch(0.42 0.12 160)",
+},
   githubUrl: "https://github.com/varshiniui/peblo_notes",
   demoUrl: "https://peblonotes.vercel.app/",
   featured: false,
@@ -208,6 +236,10 @@ const projects: Project[] = [
     techStack: ["Chrome Manifest V3", "JavaScript", "Node.js", "Express.js", "PostgreSQL", "Chart.js"],
     icon: Chrome,
     cardGrad: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.10), transparent)",
+    accent: {
+  bg: "oklch(0.90 0.08 40 / 0.16)",
+  color: "oklch(0.58 0.16 40)",
+},
     githubUrl: "https://github.com/varshiniui/focustrack",
     demoUrl: "#",
     featured: false,
@@ -234,6 +266,10 @@ const projects: Project[] = [
     techStack: ["React.js", "JavaScript", "CSS", "OpenWeatherMap API"],
     icon: BarChart3,
     cardGrad: "linear-gradient(135deg, oklch(0.90 0.08 150 / 0.12), transparent)",
+    accent: {
+  bg: "oklch(0.88 0.08 220 / 0.14)",
+  color: "oklch(0.52 0.14 220)",
+},
     githubUrl: "https://github.com/varshiniui/weather-app",
     demoUrl: "https://weathercast-react.netlify.app/",
     featured: false,
@@ -253,24 +289,24 @@ const projects: Project[] = [
   },
 ];
 
-const projectAccents = [
-  { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" }, // Practiq — purple
-  { bg: "oklch(0.88 0.12 160 / 0.15)", color: "oklch(0.45 0.13 160)" }, // Voca — green
-  { bg: "oklch(0.88 0.09 180 / 0.18)", color: "oklch(0.42 0.11 180)" }, // StudyMate
-  { bg: "oklch(0.92 0.10 130 / 0.22)", color: "oklch(0.40 0.12 130)" }, // foodi
-  { bg: "oklch(0.90 0.08 150 / 0.20)", color: "oklch(0.44 0.12 150)" }, // FocusTrack
-  { bg: "oklch(0.88 0.12 160 / 0.12)", color: "oklch(0.48 0.10 170)" }, // Weather
-  { bg: "oklch(0.95 0.05 45 / 0.35)",color: "oklch(0.58 0.12 35)"},
-];
 
-function TechPill({ tech, accentBg, accentColor }: { tech: string; accentBg: string; accentColor: string }) {
+interface TechPillProps {
+  tech: string;
+  accentBg: string;
+  accentColor: string;
+}
+function TechPill({
+  tech,
+  accentBg,
+  accentColor,
+}: TechPillProps) {
   return (
     <span
       className="px-3 py-1.5 text-xs font-medium rounded-full border"
       style={{
         background: accentBg,
         color: accentColor,
-        borderColor: accentColor.replace(")", " / 0.30)").replace("oklch(", "oklch("),
+        borderColor: accentColor.replace(")", " / 0.30)"),
       }}
     >
       {tech}
@@ -295,7 +331,7 @@ function ProjectPreviewModal({
 
   if (!project) return null;
 
-  const accent = projectAccents[projectIndex] ?? projectAccents[0];
+  const accent = project.accent;
 
   const nextScreenshot = () => {
     setSlideDirection("right");
@@ -534,7 +570,7 @@ function ProjectPreviewModal({
 }
 
 function FeaturedProjectDemo({ project }: { project: Project }) {
-  const accent = { bg: "oklch(0.88 0.10 290 / 0.15)", color: "oklch(0.50 0.18 290)" };
+  const accent = project.accent;
 
   return (
     <motion.div
@@ -723,8 +759,7 @@ export function Projects() {
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {otherProjects.map((project, index) => {
             const realIndex = projects.indexOf(project);
-            const accent = projectAccents[realIndex] ?? projectAccents[0];
-
+            const accent = project.accent;
             return (
               <motion.div
                 key={project.title}
