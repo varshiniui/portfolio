@@ -161,7 +161,7 @@ const projects: Project[] = [
       "Random Forest rating predictor — R² = 0.71, RMSE = 0.30",
       "Interactive Folium map with colour-coded markers and real-time filters",
     ],
- },
+  },
   {
   title: "Peblo Notes – AI Productivity Workspace",
   description:
@@ -185,7 +185,7 @@ const projects: Project[] = [
     "linear-gradient(135deg, oklch(0.91 0.09 310 / 0.16), oklch(0.93 0.08 340 / 0.10), transparent)",
   githubUrl: "https://github.com/varshiniui/peblo_notes",
   demoUrl: "https://peblonotes.vercel.app/",
-  featured: true,
+  featured: false,
   screenshots: [
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=800&h=500&fit=crop",
@@ -659,8 +659,8 @@ export function Projects() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const featuredProjects = projects.filter((p) => p.featured);
-const otherProjects = projects.filter((p) => !p.featured);
+  const featuredProject = projects.find((p) => p.featured)!;
+  const otherProjects = projects.filter((p) => !p.featured);
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project);
@@ -716,14 +716,8 @@ const otherProjects = projects.filter((p) => !p.featured);
           </p>
         </motion.div>
 
-       <div className="space-y-10 mb-12">
-  {featuredProjects.map((project) => (
-    <FeaturedProjectDemo
-      key={project.title}
-      project={project}
-    />
-  ))}
-</div>
+        <FeaturedProjectDemo project={featuredProject} />
+
         {/* Other Projects Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {otherProjects.map((project, index) => {
