@@ -112,6 +112,31 @@ const projects: Project[] = [
     ],
   },
   {
+  title: "Murmur – Real-Time Chat Application",
+  description:
+    "A private real-time chat application with multi-room support, live presence indicators, and a typing animation — built on WebSockets.",
+  fullDescription:
+    "A full-stack real-time messaging platform where users join named rooms and exchange messages instantly via WebSocket connections. Designed with a refined typographic aesthetic, Murmur features live user presence, fading pulse typing indicators, message history, and custom room creation. The server is deployed on Render and the client on Vercel.",
+  techStack: ["Node.js", "Socket.io", "Express", "Vercel", "Render", "HTML", "CSS", "JavaScript"],
+  icon: MessageSquare,
+  cardGrad: "linear-gradient(135deg, oklch(0.85 0.10 60 / 0.10), transparent)",
+  githubUrl: "https://github.com/varshiniui/chat-app",
+  demoUrl: "https://murmur-rust.vercel.app/",
+  featured: false,
+  screenshots: [
+    "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=500&fit=crop",
+  ],
+  highlights: [
+    "Real-time bidirectional messaging via Socket.io WebSockets",
+    "Multi-room support with unlimited custom room creation",
+    "Live user presence and fading pulse typing indicators",
+    "Message history preserved per room across sessions",
+  ],
+},
+  {
     title: "foodi. – Restaurant Discovery Platform",
     description:
       "An ML-powered restaurant discovery app with personalised recommendations, rating prediction, and an interactive map explorer.",
