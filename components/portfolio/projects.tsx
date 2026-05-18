@@ -161,7 +161,7 @@ const projects: Project[] = [
       "Random Forest rating predictor — R² = 0.71, RMSE = 0.30",
       "Interactive Folium map with colour-coded markers and real-time filters",
     ],
-  },
+ },
   {
   title: "Peblo Notes – AI Productivity Workspace",
   description:
@@ -659,8 +659,8 @@ export function Projects() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const featuredProject = projects.find((p) => p.featured)!;
-  const otherProjects = projects.filter((p) => !p.featured);
+  const featuredProjects = projects.filter((p) => p.featured);
+const otherProjects = projects.filter((p) => !p.featured);
 
   const openProjectModal = (project: Project) => {
     setSelectedProject(project);
@@ -716,8 +716,14 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <FeaturedProjectDemo project={featuredProject} />
-
+       <div className="space-y-10 mb-12">
+  {featuredProjects.map((project) => (
+    <FeaturedProjectDemo
+      key={project.title}
+      project={project}
+    />
+  ))}
+</div>
         {/* Other Projects Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {otherProjects.map((project, index) => {
