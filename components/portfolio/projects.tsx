@@ -10,6 +10,7 @@ import {
   Brain,
   BarChart3,
   UtensilsCrossed,
+  NotebookPen,
   Chrome,
   X,
   Play,
@@ -161,6 +162,43 @@ const projects: Project[] = [
       "Interactive Folium map with colour-coded markers and real-time filters",
     ],
   },
+  {
+  title: "Peblo Notes – AI Productivity Workspace",
+  description:
+    "A modern full-stack AI note-taking platform featuring smart summaries, public sharing, analytics, and a refined productivity-focused workspace.",
+  fullDescription:
+    "Peblo Notes is a polished AI-powered productivity workspace designed for seamless note-taking and intelligent organisation. Built using a scalable monorepo architecture with Next.js 14, Express, Prisma, and TypeScript, the platform combines secure authentication, AI-generated note summaries, public share links, analytics dashboards, auto-saving editors, and a modern pastel SaaS-inspired interface. The project focuses heavily on clean architecture, responsive UX, elegant UI design, and practical AI integration for real-world productivity workflows.",
+  techStack: [
+    "Next.js 14",
+    "TypeScript",
+    "Express.js",
+    "Prisma",
+    "PostgreSQL",
+    "Tailwind CSS",
+    "OpenRouter AI",
+    "JWT Authentication",
+    "Monorepo Architecture",
+    "shadcn/ui",
+  ],
+  icon: NotebookPen,
+  cardGrad:
+    "linear-gradient(135deg, oklch(0.91 0.09 310 / 0.16), oklch(0.93 0.08 340 / 0.10), transparent)",
+  githubUrl: "https://github.com/varshiniui/peblo_notes",
+  demoUrl: "https://peblonotes.vercel.app/",
+  featured: true,
+  screenshots: [
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
+  ],
+  highlights: [
+    "AI-powered note summarisation with structured insights and action item extraction",
+    "Secure authentication system with protected routes and JWT-based access control",
+    "Public note sharing with unique share links and elegant read-only pages",
+    "Modern analytics dashboard with productivity tracking and activity visualisation",
+  ],
+},
   {
     title: "FocusTrack – Productivity Chrome Extension",
     description:
