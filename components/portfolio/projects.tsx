@@ -9,6 +9,7 @@ import {
   MessageSquare,
   Brain,
   BarChart3,
+  Timer,
   UtensilsCrossed,
   NotebookPen,
   Chrome,
@@ -264,6 +265,38 @@ const projects: Project[] = [
       "Full analytics dashboard with weekly chart and top sites table",
     ],
   },
+  {
+  title: "FlowState – Pomodoro & Deep Work Timer",
+  description:
+    "A fully animated desktop productivity timer built with Java Swing and Graphics2D — featuring a real-time ocean wave animation, task manager, stats dashboard, badge system, and weekly reports.",
+  fullDescription:
+    "FlowState is a custom-built Pomodoro timer with zero external UI frameworks. Every visual — multi-layer sine wave animation, floating bubble particles, bioluminescent sparkles, caustic shimmer, and a 3D vessel ring — is rendered from scratch using Java Graphics2D at ~60fps. Includes two focus modes (Flow 25min / Grind 50min), session persistence via Gson, a JFreeChart analytics dashboard, GitHub-style streak heatmap, badge engine, and a Jenkins CI/CD pipeline.",
+  techStack: ["Java 17", "Swing", "Graphics2D", "Gson", "JFreeChart", "JUnit 5", "Maven", "Jenkins"],
+  icon: Timer,
+  cardGrad: "linear-gradient(135deg, oklch(0.88 0.06 210 / 0.72), oklch(0.84 0.09 220 / 0.50), oklch(0.92 0.04 200 / 0.30))",
+  borderColor: "oklch(0.65 0.10 210 / 0.25)",
+  accent: {
+    bg: "oklch(0.85 0.08 210 / 0.15)",
+    color: "oklch(0.42 0.13 210)",
+  },
+  githubUrl: "https://github.com/varshiniui/gui-demo",
+  demoUrl: "#",
+  featured: false,
+  screenshots: [
+    "https://github.com/user-attachments/assets/5634b69a-2b29-4d86-962c-7e22f5a227ad",
+    "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+  ],
+  highlights: [
+    "Custom Graphics2D rendering — multi-layer waves, bubbles, caustics, 3D ring at ~60fps",
+    "Two focus modes: Flow (25/5 min) and Grind (50/10 min) with smooth animated fill",
+    "Session persistence with Gson JSON, streak tracking, and focus ratings",
+    "Badge engine, JFreeChart pie chart, and GitHub-style heatmap for analytics",
+    "System tray support with desktop notifications on session end",
+    "Jenkins CI/CD pipeline with 6 JUnit 5 tests across build, test, and archive stages",
+  ],
+},
   {
     title: "Weather App",
     description:
