@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Code, Globe, Brain, Trophy, Sparkles } from "lucide-react";
+import { GraduationCap, Code, Globe, Brain, Trophy, Sparkles, Briefcase, Database } from "lucide-react";
 
 const milestones = [
   {
@@ -48,7 +48,7 @@ const milestones = [
     year: "2025",
     title: "Technical Achievements",
     description:
-      "Won 1st Prize at National Level Paper Presentation and 3rd Prize at College Symposium. Continuing to build, learn, and ship innovative solutions.",
+      "Won 1st Prize at the National-Level Paper Presentation (\"Role of Micro Interactions in Web UX,\" SACOESIUM 2025) and 3rd Prize at the College-Level Technical Symposium (Stray Dog Detection and Risk Analysis). Also earned IBM's Python for AI certification and completed Infosys Springboard's CI/CD (DevOps) course.",
     icon: Trophy,
     iconGrad: "var(--gradient-1)",
     yearColor: "oklch(0.45 0.13 160)",
@@ -73,6 +73,26 @@ const milestones = [
     iconGrad: "var(--gradient-1)",
     yearColor: "oklch(0.45 0.13 160)",
     yearBg: "oklch(0.88 0.12 160 / 0.15)",
+  },
+  {
+    year: "June – July 2026",
+    title: "AI Engineering Internship at Softrate",
+    description:
+      "Worked as an Artificial Intelligence Intern at Softrate Technologies, building Ledger — a role-based expense management app (React, Node.js, Express, Supabase, with RLS-secured Manager/Finance dashboards) — and SkillWave, an AI-based resume analysis tool. Implemented receipt-parsing and resume-scoring functionality using the Groq API and OCR, refined through iterative testing and mentor feedback.",
+    icon: Briefcase,
+    iconGrad: "linear-gradient(135deg, oklch(0.88 0.09 180), oklch(0.88 0.12 160))",
+    yearColor: "oklch(0.42 0.11 180)",
+    yearBg: "oklch(0.88 0.09 180 / 0.18)",
+  },
+  {
+    year: "2026",
+    title: "Building RAG Systems",
+    description:
+      "Built TechDoc-AI, a RAG-based document Q&A system: PDF upload, sentence-aware chunking, deduplication, and FAISS-indexed semantic retrieval, deployed on Render using Hugging Face's Inference API for embeddings to fit free-tier memory limits. Diagnosed a retrieval regression on cross-document ambiguous queries and fixed it with a document-scope filter and a distance-based relevance threshold — avoiding the memory cost of a full reranker. Fine-tuned the embedding model on domain-specific query-passage pairs, improving MRR from 0.778 to 0.823 on ambiguous queries.",
+    icon: Database,
+    iconGrad: "var(--gradient-2)",
+    yearColor: "oklch(0.40 0.12 140)",
+    yearBg: "oklch(0.92 0.10 130 / 0.22)",
   },
 ];
 

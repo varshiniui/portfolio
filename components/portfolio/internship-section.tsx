@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain, Layers, Cpu } from "lucide-react";
+import { Calendar, ExternalLink, BadgeCheck, Code2, Palette, BarChart2, Brain, Layers, Cpu,Bot  } from "lucide-react";
+
 
 interface Internship {
   company: string;
@@ -21,6 +22,23 @@ interface Internship {
 }
 
 const internships: Internship[] = [
+    {
+    company: "Softrate Technologies",
+    role: "AI/ML Intern",
+    duration: "Jun 2026 – Jul 2026",
+    description:
+      "Completed an Artificial Intelligence internship at Softrate Technologies, building a full-stack AI-powered college admission guidance platform with an ML recommendation engine, real-time chat, and role-based dashboards for students, counselors, and admins.",
+    skills: ["Flask", "React", "Supabase", "Groq LLM", "scikit-learn", "AI/ML"],
+    certificateUrl: "https://drive.google.com/file/d/11FBNQt2sTiMUdPjvldngrCzcMYuFZLRx/preview",
+    icon: Bot,
+    // violet
+    iconBg: "oklch(0.88 0.10 300 / 0.20)",
+    iconColor: "oklch(0.42 0.14 300)",
+    cardAccent: "linear-gradient(135deg, oklch(0.88 0.10 300 / 0.09), transparent)",
+    badgeBg: "oklch(0.88 0.10 300 / 0.15)",
+    badgeColor: "oklch(0.42 0.14 300)",
+    badgeBorder: "oklch(0.88 0.10 300 / 0.35)",
+  },
   {
     company: "Cognifyz Technologies",
     role: "Machine Learning Intern",

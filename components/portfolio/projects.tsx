@@ -9,10 +9,11 @@ import {
   MessageSquare,
   Brain,
   BarChart3,
-  Timer,
   UtensilsCrossed,
   NotebookPen,
   Chrome,
+  Timer,
+  FileText,
   X,
   Play,
   Sparkles,
@@ -42,6 +43,37 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "TechDoc-AI – RAG Document Q&A System",
+    description:
+      "A retrieval-augmented generation system that answers questions from PDFs with cited sources — debugged through real production failures and fine-tuned on its own data.",
+    fullDescription:
+      "TechDoc-AI ingests PDFs, chunks and embeds them into a FAISS index, and answers natural-language questions with citations back to the exact source chunk. What sets it apart is what happened after the first deploy: an out-of-memory crash from loading embedding and reranker models in-process, a quieter retrieval regression on ambiguous cross-document queries once the reranker was removed, and a fine-tuning experiment on the embedding model that was evaluated honestly — first showing no improvement on an easy test, then a real gain once tested against the exact ambiguity problem found in production.",
+    techStack: ["Flask", "FAISS", "Hugging Face Inference API", "Groq API", "PyMuPDF", "Fine-tuned Sentence Transformers"],
+    icon: FileText,
+    cardGrad: "linear-gradient(135deg, oklch(0.94 0.05 20 / 0.72), oklch(0.90 0.09 15 / 0.50), oklch(0.96 0.03 25 / 0.30))",
+    borderColor: "oklch(0.70 0.13 20 / 0.25)",
+    accent: {
+      bg: "oklch(0.90 0.10 20 / 0.16)",
+      color: "oklch(0.50 0.17 20)",
+    },
+    githubUrl: "https://github.com/varshiniui/TechDoc-AI",
+    demoUrl: "https://techdoc-ai-nuie.onrender.com/",
+    featured: true,
+    screenshots: [
+      "https://images.unsplash.com/photo-1568667256549-094345857637?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&h=500&fit=crop",
+    ],
+    highlights: [
+      "PDF upload with sentence-aware chunking, deduplication, and FAISS-indexed semantic retrieval",
+      "Fixed a production out-of-memory crash by moving query embeddings to Hugging Face's Inference API instead of loading models in-process",
+      "Diagnosed and fixed a retrieval regression on ambiguous cross-document queries via document-scope filtering and a distance-based relevance threshold",
+      "Fine-tuned the embedding model on domain-specific query-passage pairs — improved MRR from 0.778 to 0.823 on ambiguous queries, validated through a targeted before/after evaluation",
+      "Citation-backed answer generation via Groq, with every response traceable to its source chunk",
+    ],
+  },
+  {
     title: "Practiq - AI Mock Interview Coach",
     description:
       "An AI-powered mock interview platform with role-specific, company-specific, and resume-based questions. Get dual AI feedback from Groq and Gemini side by side.",
@@ -57,7 +89,7 @@ const projects: Project[] = [
     },
     githubUrl: "https://github.com/varshiniui/practiq",
     demoUrl: "https://practiq-zeta.vercel.app/",
-    featured: true,
+    featured: false,
     screenshots: [
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop",
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
@@ -266,37 +298,37 @@ const projects: Project[] = [
     ],
   },
   {
-  title: "FlowState – Pomodoro & Deep Work Timer",
-  description:
-    "A fully animated desktop productivity timer built with Java Swing and Graphics2D — featuring a real-time ocean wave animation, task manager, stats dashboard, badge system, and weekly reports.",
-  fullDescription:
-    "FlowState is a custom-built Pomodoro timer with zero external UI frameworks. Every visual — multi-layer sine wave animation, floating bubble particles, bioluminescent sparkles, caustic shimmer, and a 3D vessel ring — is rendered from scratch using Java Graphics2D at ~60fps. Includes two focus modes (Flow 25min / Grind 50min), session persistence via Gson, a JFreeChart analytics dashboard, GitHub-style streak heatmap, badge engine, and a Jenkins CI/CD pipeline.",
-  techStack: ["Java 17", "Swing", "Graphics2D", "Gson", "JFreeChart", "JUnit 5", "Maven", "Jenkins"],
-  icon: Timer,
-  cardGrad: "linear-gradient(135deg, oklch(0.88 0.06 210 / 0.72), oklch(0.84 0.09 220 / 0.50), oklch(0.92 0.04 200 / 0.30))",
-  borderColor: "oklch(0.65 0.10 210 / 0.25)",
-  accent: {
-    bg: "oklch(0.85 0.08 210 / 0.15)",
-    color: "oklch(0.42 0.13 210)",
+    title: "FlowState – Pomodoro & Deep Work Timer",
+    description:
+      "A fully animated desktop productivity timer built with Java Swing and Graphics2D — featuring a real-time ocean wave animation, task manager, stats dashboard, badge system, and weekly reports.",
+    fullDescription:
+      "FlowState is a custom-built Pomodoro timer with zero external UI frameworks. Every visual — multi-layer sine wave animation, floating bubble particles, bioluminescent sparkles, caustic shimmer, and a 3D vessel ring — is rendered from scratch using Java Graphics2D at ~60fps. Includes two focus modes (Flow 25min / Grind 50min), session persistence via Gson, a JFreeChart analytics dashboard, GitHub-style streak heatmap, badge engine, and a Jenkins CI/CD pipeline.",
+    techStack: ["Java 17", "Swing", "Graphics2D", "Gson", "JFreeChart", "JUnit 5", "Maven", "Jenkins"],
+    icon: Timer,
+    cardGrad: "linear-gradient(135deg, oklch(0.88 0.06 210 / 0.72), oklch(0.84 0.09 220 / 0.50), oklch(0.92 0.04 200 / 0.30))",
+    borderColor: "oklch(0.65 0.10 210 / 0.25)",
+    accent: {
+      bg: "oklch(0.85 0.08 210 / 0.15)",
+      color: "oklch(0.42 0.13 210)",
+    },
+    githubUrl: "https://github.com/varshiniui/gui-demo",
+    demoUrl: "#",
+    featured: false,
+    screenshots: [
+      "https://github.com/user-attachments/assets/5634b69a-2b29-4d86-962c-7e22f5a227ad",
+      "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+    ],
+    highlights: [
+      "Custom Graphics2D rendering — multi-layer waves, bubbles, caustics, 3D ring at ~60fps",
+      "Two focus modes: Flow (25/5 min) and Grind (50/10 min) with smooth animated fill",
+      "Session persistence with Gson JSON, streak tracking, and focus ratings",
+      "Badge engine, JFreeChart pie chart, and GitHub-style heatmap for analytics",
+      "System tray support with desktop notifications on session end",
+      "Jenkins CI/CD pipeline with 6 JUnit 5 tests across build, test, and archive stages",
+    ],
   },
-  githubUrl: "https://github.com/varshiniui/gui-demo",
-  demoUrl: "#",
-  featured: false,
-  screenshots: [
-    "https://github.com/user-attachments/assets/5634b69a-2b29-4d86-962c-7e22f5a227ad",
-    "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-  ],
-  highlights: [
-    "Custom Graphics2D rendering — multi-layer waves, bubbles, caustics, 3D ring at ~60fps",
-    "Two focus modes: Flow (25/5 min) and Grind (50/10 min) with smooth animated fill",
-    "Session persistence with Gson JSON, streak tracking, and focus ratings",
-    "Badge engine, JFreeChart pie chart, and GitHub-style heatmap for analytics",
-    "System tray support with desktop notifications on session end",
-    "Jenkins CI/CD pipeline with 6 JUnit 5 tests across build, test, and archive stages",
-  ],
-},
   {
     title: "Weather App",
     description:
@@ -725,7 +757,7 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                   }}
                   transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Brain className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
+                  <project.icon className="w-16 h-16 lg:w-20 lg:h-20 text-white drop-shadow-lg" />
                 </motion.div>
               </div>
             </div>

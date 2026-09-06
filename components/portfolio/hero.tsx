@@ -1,21 +1,22 @@
 "use client";
 
-import { motion, useScroll, useTransform, animate } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const ROLES = [
+  "AI Engineer",
+  "Generative AI Developer",
+  "RAG Systems Builder",
   "Full-Stack Developer",
-  "AI App Builder",
-  "ML Engineer",
-  "Flutter Developer",
   "Open to Internships",
 ];
 
-const STATS = [
-  { value: 5, suffix: "+", label: "Internships" },
-  { value: 6, suffix: "+", label: "Projects Shipped" },
-  { value: 7, suffix: "", label: "Languages in Voca" },
+const CURRENTLY = [
+  "Building TechDoc-AI a RAG pipeline answering questions across real PDFs",
+  "AI Intern at Softrate — shipping Ledger and SkillWave",
+  "Improved retrieval accuracy (MRR 0.778 → 0.823) by fine-tuning an embedding model",
+  "1st Prize, National-Level Paper Presentation — SACOESIUM 2025",
 ];
 
 function useTypewriter(words: string[], speed = 60, pause = 1800) {
@@ -49,35 +50,56 @@ function useTypewriter(words: string[], speed = 60, pause = 1800) {
   return display;
 }
 
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
+function CurrentlyTicker({ items }: { items: string[] }) {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const controls = animate(0, value, {
-            duration: 1.4,
-            ease: "easeOut",
-            onUpdate: (v) => setCount(Math.round(v)),
-          });
-          return () => controls.stop();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [value]);
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % items.length);
+    }, 3400);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
+    <div
+      className="mt-8 mx-auto flex items-center gap-3 px-5 py-3 rounded-2xl glass-card border max-w-xl"
+      style={{ borderColor: "oklch(0.88 0.12 160 / 0.20)" }}
+    >
+      <span className="relative flex h-2.5 w-2.5 shrink-0">
+        <motion.span
+          className="absolute inline-flex h-full w-full rounded-full"
+          style={{ background: "oklch(0.52 0.18 162)" }}
+          animate={{ opacity: [0.6, 0, 0.6], scale: [1, 1.8, 1] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <span
+          className="relative inline-flex rounded-full h-2.5 w-2.5"
+          style={{ background: "oklch(0.52 0.18 162)" }}
+        />
+      </span>
+
+      <span
+        className="text-xs font-bold tracking-wide uppercase shrink-0"
+        style={{ color: "oklch(0.42 0.17 162)" }}
+      >
+        Currently
+      </span>
+
+      <div className="relative flex-1 h-5 overflow-hidden text-left">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={index}
+            className="absolute inset-0 text-sm text-muted-foreground truncate"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {items[index]}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+    </div>
   );
 }
 
@@ -97,6 +119,12 @@ export function Hero() {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const socialLinks = [
+    { href: "https://github.com/varshiniui", Icon: Github, label: "GitHub" },
+    { href: "https://linkedin.com/in/varshini-shya", Icon: Linkedin, label: "LinkedIn" },
+    { href: "mailto:varshiniishya@gmail.com", Icon: Mail, label: "Email" },
+  ];
 
   return (
     <section
@@ -202,34 +230,13 @@ export function Hero() {
           Transforming ideas into elegant digital experiences
         </motion.p>
 
-        {/* Stat counters */}
+        {/* Currently ticker */}
         <motion.div
-          className="mt-8 flex flex-wrap items-stretch justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
         >
-          {STATS.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              className="text-center px-5 py-3 rounded-2xl glass-card border"
-              style={{ borderColor: "oklch(0.88 0.12 160 / 0.20)" }}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.30 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -3, borderColor: "oklch(0.88 0.12 160 / 0.40)" }}
-            >
-              <div
-                className="text-2xl md:text-3xl font-bold tabular-nums"
-                style={{ color: "oklch(0.42 0.17 162)" }}
-              >
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-xs text-muted-foreground mt-0.5 whitespace-nowrap">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+          <CurrentlyTicker items={CURRENTLY} />
         </motion.div>
 
         {/* CTA Buttons */}
@@ -283,11 +290,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.40, ease: [0.22, 1, 0.36, 1] }}
         >
-          {[
-            { href: "https://github.com/varshiniui", Icon: Github, label: "GitHub" },
-            { href: "https://linkedin.com/in/varshini-shya", Icon: Linkedin, label: "LinkedIn" },
-            { href: "mailto:varshiniishya@gmail.com", Icon: Mail, label: "Email" },
-          ].map(({ href, Icon, label }) => (
+          {socialLinks.map(({ href, Icon, label }) => (
             <a
               key={label}
               href={href}
