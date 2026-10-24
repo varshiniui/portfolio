@@ -13,10 +13,10 @@ const ROLES = [
 ];
 
 const CURRENTLY = [
-  "Building TechDoc-AI a RAG pipeline answering questions across real PDFs",
-  "AI Intern at Softrate — shipping Ledger and SkillWave",
-  "Improved retrieval accuracy (MRR 0.778 → 0.823) by fine-tuning an embedding model",
-  "1st Prize, National-Level Paper Presentation — SACOESIUM 2025",
+  "Shipping projects · Learning · Open to internships",
+  "Building full-stack apps with React, Next.js and AI APIs",
+  "Exploring ML, RAG pipelines and generative AI",
+
 ];
 
 function useTypewriter(words: string[], speed = 60, pause = 1800) {
@@ -131,7 +131,6 @@ export function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20"
     >
-      {/* Floating blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl"
@@ -163,7 +162,6 @@ export function Hero() {
         className="relative z-10 max-w-4xl mx-auto text-center"
         style={{ y, opacity, scale }}
       >
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -181,7 +179,6 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Name */}
         <motion.h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-balance"
           initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
@@ -189,10 +186,9 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
           {"Hi, I'm "}
-          <span className="gradient-text">Sahaya Varshini M J</span>
+          <span className="gradient-text"> Varshini </span>
         </motion.h1>
 
-        {/* Typewriter */}
         <motion.div
           className="mt-5 flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
@@ -220,7 +216,6 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Tagline */}
         <motion.p
           className="mt-5 text-base text-muted-foreground/80 max-w-xl mx-auto"
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
@@ -230,7 +225,6 @@ export function Hero() {
           Transforming ideas into elegant digital experiences
         </motion.p>
 
-        {/* Currently ticker */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -239,7 +233,6 @@ export function Hero() {
           <CurrentlyTicker items={CURRENTLY} />
         </motion.div>
 
-        {/* CTA Buttons */}
         <motion.div
           className="mt-8 flex flex-wrap items-center justify-center gap-4"
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -283,7 +276,6 @@ export function Hero() {
           </motion.button>
         </motion.div>
 
-        {/* Social icons */}
         <motion.div
           className="mt-10 flex items-center justify-center gap-6"
           initial={{ opacity: 0, y: 20 }}
@@ -313,7 +305,6 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0, y: -10 }}

@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ExternalLink,
   Github,
@@ -14,12 +13,9 @@ import {
   Chrome,
   Timer,
   FileText,
-  X,
   Play,
   Sparkles,
-  ChevronRight,
-  ChevronLeft,
-  ZoomIn,
+  Plane,
 } from "lucide-react";
 
 interface Project {
@@ -34,9 +30,10 @@ interface Project {
     bg: string;
     color: string;
   };
-  githubUrl: string;
+  githubUrl?: string;
   demoUrl: string;
   featured: boolean;
+  freelance?: boolean;
   screenshots: string[];
   highlights: string[];
 }
@@ -106,6 +103,35 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Skyway Trips – Travel Agency Website",
+    description:
+      "A travel agency website built for a startup client, with tour packages, enquiry forms, and an admin panel to manage content.",
+    fullDescription:
+      "A production website built for a startup travel agency as a freelance project. Visitors can browse tour packages and destinations, send enquiries, and read testimonials. The owner manages packages, enquiries, and testimonials from a secure admin panel, and gets an email alert for every new enquiry. Designed to be clean, fast, and mobile friendly.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Resend"],
+    icon: Plane,
+    cardGrad: "linear-gradient(135deg, oklch(0.94 0.04 230 / 0.72), oklch(0.90 0.07 235 / 0.50), oklch(0.96 0.02 225 / 0.30))",
+    borderColor: "oklch(0.72 0.10 230 / 0.25)",
+    accent: {
+      bg: "oklch(0.88 0.08 230 / 0.16)",
+      color: "oklch(0.48 0.13 230)",
+    },
+    demoUrl: "https://skywaytrips.in",
+    featured: false,
+    freelance: true,
+    screenshots: [
+      "/screenshots/skyway/home.png",
+      "/screenshots/skyway/packages.png",
+      "/screenshots/skyway/mobile.png",
+    ],
+    highlights: [
+      "Tour package listing with detail pages",
+      "Enquiry form with instant email alerts to the owner",
+      "Secure admin panel to manage packages, enquiries, and testimonials",
+      "Rotating hero slideshow and fully mobile responsive layout",
+    ],
+  },
+  {
     title: "Voca - AI Voice Note Summarizer",
     description:
       "A web application that records voice notes, converts speech to text, and generates AI-powered summaries.",
@@ -133,36 +159,6 @@ const projects: Project[] = [
       "AI-powered summary generation",
       "Key points extraction",
       "Action items identification",
-    ],
-  },
-  {
-    title: "StudyMate AI – AI Chat Application",
-    description:
-      "A responsive AI chat application featuring user authentication and chat history persistence.",
-    fullDescription:
-      "An intelligent study companion powered by AI that helps students learn more effectively. Features user authentication, persistent chat history, and a responsive interface that works across all devices.",
-    techStack: ["React.js", "REST APIs", "Netlify", "Render", "CSS3", "Node.js"],
-    icon: MessageSquare,
-    cardGrad: "linear-gradient(135deg, oklch(0.94 0.04 180 / 0.72), oklch(0.90 0.07 185 / 0.50), oklch(0.96 0.02 175 / 0.30))",
-    borderColor: "oklch(0.70 0.09 180 / 0.25)",
-    accent: {
-      bg: "oklch(0.88 0.09 180 / 0.18)",
-      color: "oklch(0.42 0.11 180)",
-    },
-    githubUrl: "https://github.com/varshiniui/studymate-ai",
-    demoUrl: "https://studymateeeai.netlify.app/",
-    featured: false,
-    screenshots: [
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1675557009875-436f7a5cc979?w=800&h=500&fit=crop",
-    ],
-    highlights: [
-      "User authentication system",
-      "Persistent chat history",
-      "Responsive design",
-      "AI-powered responses",
     ],
   },
   {
@@ -382,261 +378,6 @@ function TechPill({ tech, accentBg, accentColor }: TechPillProps) {
   );
 }
 
-function ProjectPreviewModal({
-  project,
-  projectIndex,
-  isOpen,
-  onClose,
-}: {
-  project: Project | null;
-  projectIndex: number;
-  isOpen: boolean;
-  onClose: () => void;
-}) {
-  const [activeScreenshot, setActiveScreenshot] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  if (!project) return null;
-
-  const accent = project.accent;
-
-  const nextScreenshot = () => {
-    setSlideDirection("right");
-    setActiveScreenshot((prev) => (prev + 1) % project.screenshots.length);
-  };
-  const prevScreenshot = () => {
-    setSlideDirection("left");
-    setActiveScreenshot((prev) => (prev - 1 + project.screenshots.length) % project.screenshots.length);
-  };
-  const goToScreenshot = (index: number) => {
-    setSlideDirection(index > activeScreenshot ? "right" : "left");
-    setActiveScreenshot(index);
-  };
-
-  const slideVariants = {
-    enter: (direction: "left" | "right") => ({ x: direction === "right" ? 300 : -300, opacity: 0, scale: 0.95 }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit: (direction: "left" | "right") => ({ x: direction === "right" ? -300 : 300, opacity: 0, scale: 0.95 }),
-  };
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          <motion.div
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-          />
-
-          <AnimatePresence>
-            {isFullscreen && (
-              <motion.div
-                className="fixed inset-0 z-[60] bg-foreground/90 backdrop-blur-md flex items-center justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsFullscreen(false)}
-              >
-                <motion.img
-                  src={project.screenshots[activeScreenshot]}
-                  alt={`${project.title} screenshot ${activeScreenshot + 1}`}
-                  className="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ type: "spring", damping: 20, stiffness: 380 }}
-                />
-                <button
-                  onClick={() => setIsFullscreen(false)}
-                  className="absolute top-6 right-6 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center hover:bg-background/30 transition-colors"
-                >
-                  <X className="w-6 h-6 text-background" />
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <motion.div
-            className="fixed inset-4 md:inset-8 lg:inset-16 z-50 flex items-center justify-center pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="w-full max-w-4xl max-h-full overflow-hidden rounded-3xl glass-card pointer-events-auto"
-              initial={{ scale: 0.9, y: 40, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 40, opacity: 0 }}
-              transition={{ type: "spring", damping: 20, stiffness: 380 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative p-6 border-b border-border/50">
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
-                    style={{ background: accent.bg, color: accent.color }}
-                  >
-                    <project.icon className="w-7 h-7" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-foreground">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mt-1">
-                      {project.techStack.slice(0, 3).join(" • ")}
-                    </p>
-                  </div>
-                  <button
-                    onClick={onClose}
-                    className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center hover:bg-muted transition-colors"
-                  >
-                    <X className="w-5 h-5 text-muted-foreground" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="overflow-y-auto max-h-[calc(100vh-16rem)]">
-                <div className="p-6 border-b border-border/50">
-                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted/30 group">
-                    <AnimatePresence initial={false} custom={slideDirection} mode="wait">
-                      <motion.img
-                        key={activeScreenshot}
-                        src={project.screenshots[activeScreenshot]}
-                        alt={`${project.title} screenshot ${activeScreenshot + 1}`}
-                        className="w-full h-full object-cover cursor-zoom-in"
-                        custom={slideDirection}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-                        onClick={() => setIsFullscreen(true)}
-                        draggable={false}
-                      />
-                    </AnimatePresence>
-
-                    <motion.div
-                      className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
-                      onClick={() => setIsFullscreen(true)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ZoomIn className="w-4 h-4 text-foreground" />
-                      <span className="text-xs font-medium text-foreground">Expand</span>
-                    </motion.div>
-
-                    {project.screenshots.length > 1 && (
-                      <>
-                        <motion.button
-                          className="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background"
-                          onClick={prevScreenshot}
-                          whileHover={{ scale: 1.1, x: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ChevronLeft className="w-6 h-6 text-foreground" />
-                        </motion.button>
-                        <motion.button
-                          className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background"
-                          onClick={nextScreenshot}
-                          whileHover={{ scale: 1.1, x: 2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ChevronRight className="w-6 h-6 text-foreground" />
-                        </motion.button>
-                      </>
-                    )}
-
-                    <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm">
-                      <span className="text-xs font-medium text-foreground">
-                        {activeScreenshot + 1} / {project.screenshots.length}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm">
-                      {project.screenshots.map((_, index) => (
-                        <motion.button
-                          key={index}
-                          onClick={() => goToScreenshot(index)}
-                          className="relative h-2 rounded-full transition-all duration-300"
-                          style={{
-                            width: index === activeScreenshot ? 32 : 8,
-                            background: index === activeScreenshot ? accent.color : "oklch(0.6 0 0 / 0.3)",
-                          }}
-                          whileHover={{ scale: 1.2 }}
-                          whileTap={{ scale: 0.9 }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-3">About This Project</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{project.fullDescription}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-3">Key Features</h4>
-                    <ul className="space-y-2">
-                      {project.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <ChevronRight className="w-4 h-4 shrink-0" style={{ color: accent.color }} />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="px-6 pb-6">
-                  <h4 className="text-sm font-semibold text-foreground mb-3">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <TechPill key={tech} tech={tech} accentBg={accent.bg} accentColor={accent.color} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 border-t border-border/50 flex items-center gap-4">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border text-sm font-medium transition-all"
-                  style={{ borderColor: accent.color + "50", color: accent.color }}
-                  onMouseEnter={e => (e.currentTarget.style.background = accent.bg)}
-                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-                >
-                  <Github className="w-4 h-4" />
-                  View on GitHub
-                </a>
-                {project.demoUrl !== "#" && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                    style={{
-                      background: `linear-gradient(135deg, ${accent.color}, oklch(0.44 0.20 310))`,
-                      boxShadow: `0 4px 18px ${accent.color.replace(")", " / 0.32)").replace("oklch(", "oklch(")}, inset 0 1px 0 oklch(1 0 0 / 0.18)`,
-                    }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-}
-
 function FeaturedProjectDemo({ project }: { project: Project }) {
   const accent = project.accent;
 
@@ -706,18 +447,20 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
                 <Play className="w-4 h-4" />
                 Try Demo
               </a>
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all"
-                style={{ borderColor: accent.color + "50", color: accent.color }}
-                onMouseEnter={e => (e.currentTarget.style.background = accent.bg)}
-                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-              >
-                <Github className="w-4 h-4" />
-                View Code
-              </a>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all"
+                  style={{ borderColor: accent.color + "50", color: accent.color }}
+                  onMouseEnter={e => (e.currentTarget.style.background = accent.bg)}
+                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                >
+                  <Github className="w-4 h-4" />
+                  View Code
+                </a>
+              )}
             </div>
           </div>
 
@@ -769,23 +512,8 @@ function FeaturedProjectDemo({ project }: { project: Project }) {
 }
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const featuredProject = projects.find((p) => p.featured)!;
   const otherProjects = projects.filter((p) => !p.featured);
-
-  const openProjectModal = (project: Project) => {
-    setSelectedProject(project);
-    setSelectedProjectIndex(projects.indexOf(project));
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedProject(null), 300);
-  };
 
   return (
     <section className="py-24 px-6 relative overflow-hidden" id="projects">
@@ -839,7 +567,7 @@ export function Projects() {
             return (
               <motion.div
                 key={project.title}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
+                className="group relative rounded-2xl overflow-hidden"
                 style={{
                   background: project.cardGrad,
                   backdropFilter: "blur(16px)",
@@ -856,12 +584,7 @@ export function Projects() {
                   scale: 1.025,
                   boxShadow: `0 12px 40px ${project.borderColor}, inset 0 1px 0 oklch(1 0 0 / 0.60)`,
                 }}
-                onClick={() => openProjectModal(project)}
               >
-                <span className="absolute top-4 right-4 px-2 py-1 text-xs font-medium text-muted-foreground bg-white/40 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                  Click to preview
-                </span>
-
                 <div className="relative p-6 lg:p-8">
                   <div className="flex items-start gap-4 mb-4">
                     <div
@@ -875,10 +598,18 @@ export function Projects() {
                     >
                       <project.icon className="w-6 h-6" />
                     </div>
-                    <div className="flex-1 pr-16">
+                    <div className="flex-1">
                       <h3 className="text-xl font-bold text-foreground">
                         {project.title}
                       </h3>
+                      {project.freelance && (
+                        <span
+                          className="inline-block mt-2 px-2.5 py-0.5 text-xs font-medium rounded-full border"
+                          style={{ background: accent.bg, color: accent.color, borderColor: accent.color + "40" }}
+                        >
+                          Freelance
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -896,19 +627,21 @@ export function Projects() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all"
-                      style={{ borderColor: accent.color + "50", color: accent.color }}
-                      onClick={(e) => e.stopPropagation()}
-                      onMouseEnter={e => (e.currentTarget.style.background = accent.bg)}
-                      onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-                    >
-                      <Github className="w-4 h-4" />
-                      GitHub
-                    </a>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all"
+                        style={{ borderColor: accent.color + "50", color: accent.color }}
+                        onClick={(e) => e.stopPropagation()}
+                        onMouseEnter={e => (e.currentTarget.style.background = accent.bg)}
+                        onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                      >
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    )}
                     {project.demoUrl !== "#" && (
                       <a
                         href={project.demoUrl}
@@ -922,7 +655,7 @@ export function Projects() {
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink className="w-4 h-4" />
-                        Live Demo
+                        {project.freelance ? "Live Site" : "Live Demo"}
                       </a>
                     )}
                   </div>
@@ -933,12 +666,6 @@ export function Projects() {
         </div>
       </div>
 
-      <ProjectPreviewModal
-        project={selectedProject}
-        projectIndex={selectedProjectIndex}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
     </section>
   );
 }

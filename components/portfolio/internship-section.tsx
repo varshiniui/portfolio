@@ -56,23 +56,6 @@ const internships: Internship[] = [
     badgeBorder: "oklch(0.88 0.09 240 / 0.35)",
   },
   {
-    company: "SaiKet Systems",
-    role: "Full Stack Development Intern",
-    duration: "2026",
-    description:
-      "Completed a full stack development internship, building and deploying web applications while demonstrating exceptional dedication and strong Full Stack Development skills.",
-    skills: ["Next.js", "Express.js", "PostgreSQL", "JWT Auth", "REST APIs", "Full Stack"],
-    certificateUrl: "https://drive.google.com/file/d/1lKlaHIyTdCXWHn8pyb8jPeHGDtsQlsOT/preview",
-    icon: Layers,
-    // teal
-    iconBg: "oklch(0.88 0.09 180 / 0.20)",
-    iconColor: "oklch(0.40 0.12 180)",
-    cardAccent: "linear-gradient(135deg, oklch(0.88 0.09 180 / 0.09), transparent)",
-    badgeBg: "oklch(0.88 0.09 180 / 0.15)",
-    badgeColor: "oklch(0.40 0.12 180)",
-    badgeBorder: "oklch(0.88 0.09 180 / 0.35)",
-  },
-  {
     company: "Zoro Tech",
     role: "UI/UX Design Intern",
     duration: "2025",

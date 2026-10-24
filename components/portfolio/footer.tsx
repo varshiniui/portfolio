@@ -34,9 +34,9 @@ export function Footer() {
           {/* Social icons — Sorbet hover tints */}
           <div className="flex items-center gap-4">
             {[
-              { href: "#", Icon: Github, label: "GitHub", hoverBg: "oklch(0.88 0.12 160 / 0.10)", hoverColor: "oklch(0.45 0.13 160)" },
-              { href: "#", Icon: Linkedin, label: "LinkedIn", hoverBg: "oklch(0.90 0.08 320 / 0.14)", hoverColor: "oklch(0.42 0.11 180)" },
-              { href: "mailto:varshini562021@gmail.com", Icon: Mail, label: "Email", hoverBg: "oklch(0.92 0.10 130 / 0.18)", hoverColor: "oklch(0.40 0.12 140)" },
+              { href: "https://github.com/varshiniui", Icon: Github, label: "GitHub", hoverBg: "oklch(0.88 0.12 160 / 0.10)", hoverColor: "oklch(0.45 0.13 160)" },
+              { href: "https://linkedin.com/in/varshini-shya", Icon: Linkedin, label: "LinkedIn", hoverBg: "oklch(0.90 0.08 320 / 0.14)", hoverColor: "oklch(0.42 0.11 180)" },
+              { href: "mailto:varshiniishya@gmail.com", Icon: Mail, label: "Email", hoverBg: "oklch(0.92 0.10 130 / 0.18)", hoverColor: "oklch(0.40 0.12 140)" },
             ].map(({ href, Icon, label, hoverBg, hoverColor }) => (
               <a
                 key={label}
